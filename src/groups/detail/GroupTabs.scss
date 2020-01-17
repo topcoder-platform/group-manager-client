@@ -1,0 +1,19 @@
+:global { 
+    
+    .group-tabs {
+       
+        .tabs ul {
+            width: 100%;
+        }
+        
+        .tabs {
+            width: 100%;
+            margin: 0 auto 15px auto;
+        }
+
+        .gridview-content.content .container {
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+    }
+}

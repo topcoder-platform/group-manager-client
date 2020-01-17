@@ -1,0 +1,33 @@
+:global {
+
+  .loading-text {
+     text-align: center;
+     font-size:0.9em;
+     margin-top: 10px;
+  }
+  .loading-indicator {
+    height: 80%;
+    width: 100%;
+    min-height: 70px;
+    min-width: 70px;
+    background: 50% 50% no-repeat;
+    background-size: 70px 70px;
+    background-image: url('../../assets/images/loader.gif');
+  
+    &.small {
+      height: 16px;
+      width: 16px;
+      min-height: 0;
+      min-width: 0;
+      background-size: 16px 16px;
+    }
+
+    &.x-small {
+      height: 16px;
+      width: 16px;
+      min-height: 0;
+      min-width: 0;
+      background-size: 16px 16px;
+    }
+  }
+}

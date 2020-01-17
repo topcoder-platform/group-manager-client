@@ -1,0 +1,29 @@
+@import '~tc-ui/src/styles/tc-includes';
+
+:global {
+  .main-wrapper {
+    min-height: calc(100vh - 60px); // minus height
+    padding-top: 60px;
+    overflow: hidden;
+
+    @media screen and (max-width: $screen-md - 1px) {
+      padding-top: 0;
+      min-height: calc(100vh - 50px); // minus mobile header height
+    }
+
+    &.with-filters {
+      padding-top: 120px;
+
+      @media screen and (max-width: $screen-md - 1px) {
+        padding-top: 0;
+      }
+    }
+
+    &[data-route*='new-project'] {
+      background-color: $tc-gray-neutral-light;
+    }
+    &[data-route*='add-phase'] {
+      background-color: $tc-gray-neutral-light;
+    }
+  }
+}

@@ -1,0 +1,60 @@
+@import '~tc-ui/src/styles/tc-includes';
+
+.container {
+  align-items: center;
+  display: flex;
+}
+
+.photo {
+  display: block;
+}
+
+.photo-size-35 :global(.Avatar) {
+  height: 35px;
+  width: 35px;
+}
+
+.photo-size-40 :global(.Avatar) {
+  height: 40px;
+  width: 40px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: normal;
+  margin-left: $base-unit * 3;
+  text-align-last: left;
+}
+
+.name {
+  @include roboto-medium;
+  font-size: 15px;
+}
+
+.handle {
+  @include roboto;
+  display: block;
+  font-size: 13px;
+}
+
+.container.dark {
+  .name {
+    color: $tc-gray-neutral-light;
+  }
+
+  .handle {
+    color: rgba($tc-gray-neutral-light, 0.7);
+  }
+}
+
+.container.light {
+  .name {
+    color: $tc-gray-80;
+  }
+
+  .handle {
+    color: $tc-gray-50;
+  }
+}

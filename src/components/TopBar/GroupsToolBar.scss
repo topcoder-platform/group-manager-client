@@ -1,0 +1,443 @@
+// this is to include tc styles in the output library
+@import '~tc-ui/src/styles/tc-includes';
+
+:global {
+
+  .SearchBar {
+    &.state-empty:before {
+      content: "Search for groups";
+    }
+  }
+
+  .ProjectsToolBar {
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .primary-toolbar {
+      display: flex;
+      width: 100%;
+      min-height: 60px;
+      height: 60px;
+      justify-content: space-between;
+      user-select: none;
+      @media screen and (max-width: $screen-md - 1px) {
+        height: auto;
+        min-height: 50px;
+      }
+
+      .projects-title-mobile {
+        @include tc-heading-small;
+        color: $tc-gray-10;
+        font-size: 15px;
+        line-height: 50px;
+
+        @media screen and (min-width: $screen-md) {
+          display: none;
+        }
+      }
+
+      .logo-wrapper {
+        margin-left: 4 * $base-unit;
+        margin-right: 4 * $base-unit;
+
+        @media screen and (max-width: $screen-md - 1px) {
+          margin-left: 3 * $base-unit;
+          margin-right: 0;
+        }
+      }
+
+      .MenuBar {
+        li.selected {
+          // hides the bottom border as per https://github.com/appirio-tech/connect-app/issues/1267#issuecomment-343298713
+          border-bottom: none;
+        }
+      }
+
+      .primary-filters {
+        margin-top: 15px;
+      }
+
+      .welcome-info {
+        margin-right: 4 * $base-unit;
+        @media screen and (max-width: $screen-md - 1px) {
+          margin-right: 3 * $base-unit;
+        }
+
+        .avatar-info {
+          .username {
+            display: none;
+          }
+        }
+      }
+
+      .actions {
+        display: flex;
+      }
+    }
+
+    .secondary-toolbar {
+      display: flex;
+      min-height: 60px;
+      height: 60px;
+
+      .SearchBar {
+        display: none;
+      }
+
+      @media screen and (max-width: $screen-md - 1px) {
+        height: auto;
+        min-height: 50px;
+
+        /* update styles for SearchBar
+           if same mobile styles has to be used at some other places,
+           this style has to be updated in SearchBar component in react-components
+        */
+        .SearchBar {
+          background-color: $tc-gray-90;
+          display: block;
+          height: 50px;
+          padding: 0;
+
+          &::before {
+            @include roboto;
+            color: $tc-gray-40;
+            font-size: 15px;
+          }
+
+          .search-bar__text {
+            @include roboto;
+            border: 0;
+            border-radius: 0;
+            color: $tc-gray-40;
+            height: 50px;
+            font-size: 15px;
+            margin-bottom: 0;
+            padding: 0 3 * $base-unit;
+            text-indent: 0;
+
+            &:focus {
+              box-shadow: none;
+            }
+          }
+
+          .search-icon-wrap {
+            display: none;
+          }
+
+          .search-bar__clear {
+            right: 4 * $base-unit;
+          }
+
+          &.state-focused,
+          &.state-filled {
+            border: 0;
+            border-radius: 0;
+            background-color: $tc-gray-90;
+            padding-right: 0;
+          }
+        }
+      }
+    }
+
+    .MenuBar li {
+      align-items: center; // should reside in MenuBar component instead
+
+      a {
+        text-transform: uppercase;
+        font-size: $tc-label-xs;
+        line-height: 6 * $base-unit;
+      }
+
+      &.selected a {
+        color: $tc-gray-10;
+      }
+    }
+
+    .search-widget {
+      width: 595px;
+      height: 30px;
+      margin-top: 15px;
+      display: flex;
+
+      @media screen and (max-width: $screen-md - 1px) {
+        height: 32px;
+        margin-top: 9px;
+      }
+
+      input::-ms-clear{
+        width: 0;
+        height: 0;
+        display: none;
+      }
+
+      .SearchBar {
+        @media screen and (max-width: $screen-md - 1px) {
+          display: none;
+        }
+      }
+    }
+
+    /* .bar__search */
+    .bar__search {
+      align-items: center;
+      box-sizing: border-box;
+      position: relative;
+      min-height: 60px;
+      padding: 10px 20px;
+      background-color: $tc-gray-20;
+      border-bottom: 1px solid $tc-gray-40;
+      box-shadow: 0 2px 5px 0 rgba($tc-black, 0.25);
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      @media screen and (max-width: $screen-md - 1px) {
+        border-bottom: 0;
+        box-shadow: none;
+        min-height: 50px;
+        padding: 0;
+      }
+
+      h2 {
+        font-size: $tc-body-lg;
+        color: $tc-black;
+        white-space: nowrap;
+
+        @media screen and (max-width: $screen-md - 1px) {
+          display: none;
+        }
+      }
+
+      .bar-control {
+        width: 120px;
+        text-align: right;
+        min-height: 30px;
+        padding-top: 15px;
+
+        .tc-btn {
+          display: inline-block;
+          height: 30px;
+          white-space: nowrap;
+        }
+      }
+
+      > .tc-btn {
+        @media screen and (max-width: $screen-md - 1px) {
+          display: none;
+        }
+      }
+
+      .search-panel {
+        flex: 1;
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        padding-right: 30px;
+
+        @media screen and (max-width: $screen-md - 1px) {
+          padding-right: 0;
+        }
+
+        .search-select-widget {
+          align-items: center;
+          display: flex;
+          margin-left: 40px;
+          flex: 1;
+
+          @media screen and (max-width: $screen-md - 1px) {
+            margin-left: 0;
+          }
+
+          label {
+            @include roboto-medium;
+            display: inline-block;
+            line-height: 30px;
+            height: 30px;
+            font-size: 13px;
+            color: $tc-gray-70;
+            padding-right: 15px;
+            text-align: right;
+            white-space: nowrap;
+
+            @media screen and (max-width: $screen-md - 1px) {
+              display: none;
+            }
+          }
+        }
+
+        .search-select-field {
+          flex: 1;
+
+          /* update styles for Select,
+             it could make sense to update styles for Select globally
+             if somewhere else we use it for mobile */
+          @media screen and (max-width: $screen-md - 1px) {
+            .Select-control {
+              background-color: $tc-gray-90;
+              border: 0;
+              border-radius: 0;
+              height: 50px;
+              padding-left: 2 * $base-unit;
+            }
+
+            .Select-arrow-zone {
+              display: none;
+            }
+
+            .Select-clear-zone {
+              padding-right: 4 * $base-unit;
+            }
+
+            .Select-clear {
+              background: url(~appirio-tech-react-components/components/SearchBar/x-mark.svg) no-repeat center;
+              height: 10px;
+              overflow: hidden;
+              text-indent: -9999px;
+              width: 10px;
+            }
+
+            .Select-placeholder {
+              color: $tc-gray-40;
+              font-size: 15px;
+              line-height: 50px;
+              padding-left: 3 * $base-unit;
+            }
+
+            .Select-item {
+              background-color: $tc-gray-70;
+              border-radius: 2px;
+              height: 30px;
+              margin-left: $base-unit;
+              margin-top: 2 * $base-unit;
+              padding: $base-unit 2 * $base-unit;
+
+              .Select-item-icon {
+                display: none;
+              }
+
+              .Select-item-label {
+                color: $tc-white;
+                padding-left: 0;
+              }
+            }
+
+            .Select-input  {
+              height: 50px;
+              margin-left: $base-unit;
+
+              > input:not([type="checkbox"]) {
+                color: $tc-gray-40;
+                background-color: transparent;
+                height: 50px;
+
+                &:focus {
+                   /* because we have global style for all inputs with !important */
+                  background-color: transparent !important;
+                }
+              }
+            }
+
+            .Select.is-open .Select-input > input:not([type="checkbox"]) {
+              background-color: transparent;
+            }
+
+            .Select-menu {
+              padding: 2 * $base-unit 0;
+            }
+
+            .Select-option {
+              @include roboto;
+              color: $tc-black;
+              height: 50px;
+              font-size: 15px;
+              line-height: 50px;
+              padding: 0 4 * $base-unit;
+
+              &.is-focused {
+                background-color: $tc-white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .SwitchButton .label {
+    padding-right: 10px;
+    text-align: right;
+    width: auto;
+    width: auto;
+    cursor: pointer;
+    transition: 200ms ease-in-out all;
+
+    &:hover {
+      color: $tc-gray-30;
+    }
+  }
+
+  .project-creation-dialog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 21;/* +1 of the z-index of the topbar */
+    background-color: $tc-gray-neutral-light;
+    /*background-color: $tc-gray-neutral-dark;*/
+    overflow-y: scroll;
+    opacity: 1;
+    transition: all .250ms ease-in-out;
+
+    .IncompleteProjectConfirmation {
+      margin-top: 0px;
+    }
+
+    .SelectProduct {
+      margin-top: 30px;
+    }
+
+    section.content {
+      padding: 1px 0;
+    }
+
+    .escape-button {
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      z-index: 22;/* +1 from z-index of the modal overlay */
+    }
+
+    // .FillProjectDetailsWrapper {
+    //   margin-top: -60px; // Counteract the push from the main wrapper, top of vewport
+    // }
+  }
+
+  .project-creation-dialog {
+    top: 0px;
+    left: 0px;
+
+    .TextInput.project-name,
+    .TextInput.project-ref-code {
+      height: 45px;
+    }
+  }
+
+  /*.project-creation-dialog-close {
+    cursor: pointer;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+
+    & .x-mark-icon {
+      width: 100%;
+      height: 100%;
+    }
+  }*/
+}

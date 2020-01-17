@@ -1,0 +1,43 @@
+// this is to include tc styles in the output library
+@import '~tc-ui/src/styles/tc-includes';
+
+
+:global {
+  .new-group-link {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 20px;
+
+    @media screen and (max-width: $screen-md - 1px) {
+      margin-left: 2 * $base-unit;
+      padding-left: 2 * $base-unit;
+      padding-right: 2 * $base-unit;
+    }
+
+    @media screen and (max-width: $screen-sm - 1px) {
+      display: none;
+    }
+
+    .new-group-icon {
+      width: 20px;
+      height: 20px;
+      background-color: $tc-gray-50;
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      svg {
+        fill: $tc-black;
+        width: 10px;
+        height: 10px;
+      }
+
+      &:hover {
+        background-color: $tc-orange-30;
+      }
+    }
+  }
+}

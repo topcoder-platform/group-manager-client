@@ -116,7 +116,7 @@ workflows:
           context : org-global
           filters:
             branches:
-              only: ['develop']              
+              only: ['dev']              
              
       - deployDev:
           context : org-global
@@ -124,4 +124,4 @@ workflows:
             - build-dev
           filters:
             branches:
-              only: ['develop']
+              only: ['dev']

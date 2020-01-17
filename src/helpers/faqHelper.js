@@ -12,7 +12,7 @@ export const getFaqList = () => {
     },
     {
       id: '3',  
-      title:'Is there any caching of data',
+      title:'Is there any caching of data ?',
       details: 'The groups data is cached on server and client, to conserve bandwidth. Please refresh to get the latest copy from server'
     }
   ]

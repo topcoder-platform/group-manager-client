@@ -31,8 +31,8 @@ class TopBarContainer extends React.Component {
   }
 
   navigateToProfile() {
-    const handle = _.get(this.props,)
-    window.location = `https://www.${DOMAIN}.com/members/` + this.props.user.handle
+    const handle = _.get(this.props, 'user.handle')
+    window.location = `https://www.${DOMAIN}.com/members/` + handle
   }
 
   shouldComponentUpdate(nextProps) {

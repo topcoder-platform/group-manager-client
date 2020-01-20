@@ -187,7 +187,7 @@ class MemberCollectionContainer extends React.Component {
             </a>
           </div>
           {this.getMemberLoading()}
-          <HelpIcon tooltip="Search is limited to displayed users" />
+          <HelpIcon tooltip="Search is limited to displayed users. Scroll or use load more button to load users for the group" />
         </nav>  
 
         <SearchBar

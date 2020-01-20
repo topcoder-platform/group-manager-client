@@ -31,7 +31,8 @@ class TopBarContainer extends React.Component {
   }
 
   navigateToProfile() {
-    window.location = 'https://www.topcoder.com/members/' + this.user.handle
+    const handle = _.get(this.props,)
+    window.location = `https://www.${DOMAIN}.com/members/` + this.props.user.handle
   }
 
   shouldComponentUpdate(nextProps) {
@@ -46,7 +47,7 @@ class TopBarContainer extends React.Component {
     return (
       <div className="logo-wrapper">
         <Link className="logo" to={logoTargetUrl} target="_self">
-          <ConnectLogoMono className="icon-connect-logo-mono" title="Connect" />
+          <ConnectLogoMono className="icon-connect-logo-mono" title="Group Manager" />
         </Link>
         {comp}
       </div>
@@ -65,12 +66,12 @@ class TopBarContainer extends React.Component {
 
     const logoutClick = (evt) => {
       evt.preventDefault()
-      window.location = 'https://www.topcoder.com/members/' + this.user.handle
+      window.location = logoutLink
     }
 
     const userMenuItems = [
       [
-        { label: 'My profile', link: '//topcoder.com/members/' + user.handle, onClick: this.navigateToProfile }
+        { label: 'My profile', link: `//${DOMAIN}/members/${user.handle}`, onClick: this.navigateToProfile }
       ],
       [
         { label: 'Log out', onClick: logoutClick, absolute: true, id: 0 }
@@ -81,7 +82,7 @@ class TopBarContainer extends React.Component {
       {
         style: 'big',
         items: [
-          { label: 'My profile', link: '//www.topcoder.com/members/' + user.handle }
+          { label: 'My profile', link: `//www.${DOMAIN}.com/members/` + user.handle }
         ]
       },
       {

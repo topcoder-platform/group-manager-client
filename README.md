@@ -12,7 +12,7 @@ Group Manager client side application for self managing groups
 - `$ npm install` - Installs all dependencies.
 - `$ npm start` - Run application in development mode against Topcoder development environment using [dev](https://github.com/appirio-tech/connect-app/blob/dev/config/constants/dev.js) config. In this case the frontend is build in memory by webpack server and uses dev tools like redux-logger.
 
-Open browser with URL http://local.topcoder-dev.com:3000.
+Open browser with URL http://localhost:3001.
 
 ## NPM commands
 

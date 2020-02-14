@@ -21,7 +21,11 @@ const VideoSection = (props) => {
         <video width="640" height="360" controls>
           <source src="./static/help.webm" type="video/webm" />
         </video>
+        <div className="video-courtesy">
+           Video credits: jaya.dhaka
+        </div>
       </div>
+     
 
     </div>
   )

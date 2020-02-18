@@ -5,7 +5,6 @@
  */
 import React from 'react'
 import PropTypes from 'prop-types'
-import { TransitionGroup, Transition } from 'react-transition-group'
 
 import SectionTitle from '../SectionTitle/SectionTitle'
 
@@ -20,9 +19,13 @@ const VideoSection = (props) => {
       />
       <div className="video-container">
         <video width="640" height="360" controls>
-          <source src="movie.mp4" type="video/mp4" />
+          <source src="./static/help.webm" type="video/webm" />
         </video>
+        <div className="video-courtesy">
+           Video credits: jaya.dhaka
+        </div>
       </div>
+     
 
     </div>
   )

@@ -140,10 +140,11 @@ export const filterMembers = (members, keyword) => {
   const memberKeys = ['user.first_name', 'user.last_name', 'user.handle', 'user.email']
   const lowerKeyword = keyword.toLowerCase()
 
+
   return _.filter(members, (member) => {
     for(let i = 0; i < memberKeys.length; i++) {
       const currentKey = member[memberKeys[i]]
-      if (currentKey && currentKey.indexOf(lowerKeyword) > -1) {
+      if (currentKey && currentKey.toLowerCase().indexOf(lowerKeyword) > -1) {
         return true
       }
     }

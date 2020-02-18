@@ -1,0 +1,142 @@
+version: 2
+defaults: &defaults
+    docker:
+      - image: circleci/node:8.9.4-browsers
+deploy_defaults: &deploy_defaults
+    docker:
+      - image: cibuilds/aws
+install_dependency: &install_dependency
+          name: Installation of build and deployment dependencies.
+          command: |
+            sudo apt install python-dev python-pip -y
+            sudo pip install awscli --upgrade        
+
+install_deploysuite: &install_deploysuite
+          name: Installation of install_deploysuite.
+          command: |
+            git clone --branch v1.4 https://github.com/topcoder-platform/tc-deploy-scripts ../buildscript
+            cp ./../buildscript/master_deploy.sh .
+            cp ./../buildscript/buildenv.sh .
+            cp ./../buildscript/awsconfiguration.sh .
+
+restore_cache_settings_for_build: &restore_cache_settings_for_build
+          key: group-manager-client-node-modules-{{ checksum "package-lock.json" }}
+
+save_cache_settings: &save_cache_settings    
+          key: group-manager-client-node-modules-{{ checksum "package-lock.json" }}
+          paths:
+            - node_modules
+
+running_npm_build: &running_npm_build
+          name: Running Npm Build
+          command: |
+            source buildenvvar
+            npm run build  
+
+workspace_persist: &workspace_persist
+          root: .
+          paths:
+            - dist 
+
+workspace_attach: &workspace_attach
+          at: ./workspace
+
+build_steps: &build_steps
+      # Initialization.
+      - checkout
+      - setup_remote_docker
+      - run: *install_dependency
+      - run: *install_deploysuite
+      - restore_cache: *restore_cache_settings_for_build
+      - run: npm install
+      - save_cache: *save_cache_settings
+      - run: 
+          name: "configuring environment"
+          command: |
+            ./awsconfiguration.sh $DEPLOY_ENV
+            ./buildenv.sh -e $DEPLOY_ENV -b ${LOGICAL_ENV}-group-manager-client-buildvar
+      - run: *running_npm_build
+      - persist_to_workspace: *workspace_persist
+
+deploy_steps: &deploy_steps
+      - checkout
+      - attach_workspace: *workspace_attach
+      - run: *install_deploysuite      
+      - deploy:
+          name: Running MasterScript
+          command: |
+            ./awsconfiguration.sh $DEPLOY_ENV
+            source awsenvconf
+            ./buildenv.sh -e $DEPLOY_ENV -b ${LOGICAL_ENV}-group-manager-client-deployvar
+            source buildenvvar
+            ./master_deploy.sh -d CFRONT -e $DEPLOY_ENV -c false
+
+jobs:
+  build-dev:
+    <<: *defaults
+    environment:
+      DEPLOY_ENV: "DEV"
+      LOGICAL_ENV: "dev"
+    steps: *build_steps
+
+  build-prod:
+    <<: *defaults
+    environment:
+      DEPLOY_ENV: "PROD"
+      LOGICAL_ENV: "prod"
+    steps: *build_steps
+
+  # Just tests commited code.
+  deployDev:
+    <<: *deploy_defaults
+    environment:
+      DEPLOY_ENV: "DEV"
+      LOGICAL_ENV: "dev"
+    steps: *deploy_steps
+
+  deployTest01:
+    <<: *deploy_defaults
+    environment:
+      DEPLOY_ENV: "DEV"
+      LOGICAL_ENV: "test01"
+    steps: *deploy_steps
+
+  deployProd:
+    <<: *deploy_defaults
+    environment:
+      DEPLOY_ENV: "PROD"
+      LOGICAL_ENV: "prod"
+    steps: *deploy_steps
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build-dev:
+          context : org-global
+          filters:
+            branches:
+              only: ['develop']    
+      
+      - build-prod:
+          context : org-global
+          filters:
+            branches:
+              only: master                   
+             
+      - deployDev:
+          context : org-global
+          requires:
+            - build-dev
+          filters:
+            branches:
+              only: ['develop']
+      
+      - deployProd:
+          context : org-global
+          requires:
+            - build-prod
+          filters:
+            branches:
+              only: master        
+        

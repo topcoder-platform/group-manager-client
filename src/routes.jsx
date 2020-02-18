@@ -8,7 +8,7 @@ import GroupsToolBar from './components/TopBar/GroupsToolBar'
 import SingleGroupToolbar from './components/TopBar/SingleGroupToolBar'
 import { HelpToolBar, NewGroupToolBar } from './components/TopBar/GeneralToolBar'
 
-import { ACCOUNTS_APP_LOGIN_URL } from './config/constants'
+import { ACCOUNTS_APP_LOGIN_URL } from '../config/constants'
 
 
 
@@ -45,23 +45,6 @@ class Routes extends React.Component {
   }
 
   checkAuth() {
-
-    /*
-    getFreshToken().then((res) => {
-      console.log('***JSON.stringify(res)-->' + JSON.stringify(res))
-      console.log('Fresh Token Success')
-      //this.setState({isLoggedIn: true})
-      this.props.loadUser()
-    }).catch((error) => {
-      console.log(error)
-      // we have to to redirect to the same page, so we use the whole URL
-      const redirectBackToUrl = encodeURIComponent(window.location.href)
-      const newLocation = ACCOUNTS_APP_LOGIN_URL + '?retUrl=' + redirectBackToUrl
-      console.log('redirecting... ', newLocation)
-      console.log(newLocation)
-
-      window.location = newLocation
-    })*/
     this.props.validateLogin().then(res => {
       console.log(res)
     })

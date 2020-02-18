@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import { axiosInstance as axios } from './requestInterceptor'
-import { DOMAIN } from '../config/constants'
+import { DOMAIN } from '../../config/constants'
 
 /**
  * Get a user basd on it's handle/username

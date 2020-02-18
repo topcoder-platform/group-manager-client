@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { DOMAIN } from '../../config/constants'
+import { DOMAIN } from '../../../config/constants'
 import Avatar from 'appirio-tech-react-components/components/Avatar/Avatar'
 import { getAvatarResized, getFullNameWithFallback } from '../../helpers/tcHelpers'
 import './UserWithName.scss'

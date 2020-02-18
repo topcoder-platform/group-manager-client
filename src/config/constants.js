@@ -104,17 +104,15 @@ export const ADMIN_ROLES = [ROLE_ADMINISTRATOR, ROLE_GROUP_MANAGER]
 /*
  * URLs
  */
-export const DOMAIN = process.env.domain || 'topcoder-dev.com'
-export const CONNECT_DOMAIN = `connect.${DOMAIN}`
-export const ACCOUNTS_APP_CONNECTOR_URL = process.env.ACCOUNTS_APP_CONNECTOR_URL
-export const ACCOUNTS_APP_LOGIN_URL = process.env.ACCOUNTS_APP_LOGIN_URL || `https://accounts.${DOMAIN}/member`
+//export const DOMAIN = process.env.domain || 'topcoder-dev.com'
+//export const CONNECT_DOMAIN = `connect.${DOMAIN}`
+//export const ACCOUNTS_APP_CONNECTOR_URL = process.env.ACCOUNTS_APP_CONNECTOR_URL
+//export const ACCOUNTS_APP_LOGIN_URL = process.env.ACCOUNTS_APP_LOGIN_URL || `https://accounts.${DOMAIN}/member`
 
 export const SERVER_PORT = 3001
 
-export const TC_API_URL = `https://api.${DOMAIN}/${SERVER_PORT}`
-export const TC_NOTIFICATION_URL = process.env.TC_NOTIFICATION_URL || `${TC_API_URL}/v5/notifications`
-export const TC_CDN_URL = process.env.NODE_ENV === 'development' ? 'https://d1aahxkjiobka8.cloudfront.net' : 'https://d2nl5eqipnb33q.cloudfront.net'
-export const GROUPS_API_URL = process.env.GROUPS_API_URL || 'https://api.topcoder-dev.com/v5/groupmanager/groups'
+//export const TC_API_URL = `https://api.${DOMAIN}/${SERVER_PORT}`
+//export const TC_NOTIFICATION_URL = process.env.TC_NOTIFICATION_URL || `${TC_API_URL}/v5/notifications`
 
 
 

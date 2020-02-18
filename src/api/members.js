@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import { axiosInstance as axios } from './requestInterceptor'
-import { GROUPS_API_URL } from '../config/constants'
+import { GROUPS_API_URL } from '../../config/constants'
 
 import MockApi from './mockApi'
 

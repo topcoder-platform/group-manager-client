@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import { axiosInstance as axios } from './requestInterceptor'
-import { GROUPS_API_URL } from '../config/constants'
+import { GROUPS_API_URL } from '../../config/constants'
 import MockApi from './mockApi'
 
 const USE_MOCK = false
@@ -13,7 +13,6 @@ export function getGroups(useCache) {
     return MockApi.getGroups()
   }
   const queryParam = (useCache ? '' : '?refresh=true')
-
   return axios.get(`${GROUPS_API_URL}${queryParam}`)
     .then( resp => {
       return _.get(resp, 'data')

@@ -4,12 +4,9 @@ import { Link, withRouter } from 'react-router-dom'
 import _ from 'lodash'
 import UserDropdown from 'appirio-tech-react-components/components/UserDropdownMenu/UserDropdownMenu'
 import {
-  ACCOUNTS_APP_LOGIN_URL,
-  ACCOUNTS_APP_REGISTER_URL,
-  ROLE_GROUP_MANAGER,
-  ROLE_ADMINISTRATOR,
   DOMAIN
-} from '../../config/constants'
+} from '../../../config/constants'
+
 import ConnectLogoMono from '../../assets/icons/connect-logo-mono.svg'
 import { getAvatarResized, getFullNameWithFallback } from '../../helpers/tcHelpers.js'
 require('./TopBarContainer.scss')
@@ -62,7 +59,7 @@ class TopBarContainer extends React.Component {
     const userImage = getAvatarResized(bigPhotoURL, 40)
     const userName = getFullNameWithFallback(user)
     const homePageUrl = `${window.location.protocol}//${window.location.host}/`
-    const logoutLink = `https://accounts.${DOMAIN}/#!/logout?retUrl=${homePageUrl}`
+    const logoutLink = `https://accounts.${DOMAIN}/#!/logout`
 
     const logoutClick = (evt) => {
       evt.preventDefault()
@@ -71,7 +68,7 @@ class TopBarContainer extends React.Component {
 
     const userMenuItems = [
       [
-        { label: 'My profile', link: `//${DOMAIN}/members/${user.handle}`, onClick: this.navigateToProfile }
+        { label: 'My profile', link: `//https://www.${DOMAIN}/members/${user.handle}`, onClick: this.navigateToProfile }
       ],
       [
         { label: 'Log out', onClick: logoutClick, absolute: true, id: 0 }

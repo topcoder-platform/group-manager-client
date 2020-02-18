@@ -1,11 +1,15 @@
 import _ from 'lodash'
 import {
-  ACCOUNTS_APP_CONNECTOR_URL,
   LOAD_USER_SUCCESS,
   LOAD_USER_FAILURE,
   LOAD_USER_PENDING,
   ADMIN_ROLES
 } from '../config/constants'
+
+import {
+  ACCOUNTS_APP_CONNECTOR_URL
+} from '../../config/constants'
+
 import { getFreshToken, configureConnector, decodeToken } from 'tc-accounts'
 import { getUserProfile } from '../api/users'
 

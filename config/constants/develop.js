@@ -5,6 +5,7 @@ module.exports = {
   ASSET_PREFIX      : 'https://s3.amazonaws.com/app.topcoder-dev.com/',
   AUTH_API_URL      : 'https://api.topcoder-dev.com/v3',
   auth0Callback     : 'https://api.topcoder-dev.com/pub/callback.html',
+  GROUPS_API_URL     : 'https://api.topcoder-dev.com/v5/groupmanager/groups', 
   auth0Domain       : 'topcoder-dev.auth0.com',
   clientId          : process.env.AUTH0_CLIENT_ID_DEV,
   AUTH0_DOMAIN      : 'topcoder-dev.auth0.com',
@@ -17,6 +18,7 @@ module.exports = {
   PHOTO_LINK_LOCATION: 'https://community.topcoder-dev.com',
 
   ACCOUNTS_APP_URL             : 'https://accounts.topcoder-dev.com/#!/member',
+  ACCOUNTS_APP_LOGIN_URL       : 'https://accounts.topcoder-dev.com/#!/member',
   ACCOUNTS_APP_CONNECTOR_URL   : 'https://accounts.topcoder-dev.com/connector.html',
 
 

@@ -3,23 +3,22 @@ import {
   LOAD_USER_SUCCESS,
   LOAD_USER_FAILURE,
   LOAD_USER_PENDING,
-  ADMIN_ROLES
-} from '../config/constants'
-
-import {
+  ADMIN_ROLES,
   ACCOUNTS_APP_CONNECTOR_URL,
   DOMAIN
-} from '../../config/constants'
+} from '../config/constants'
 
 import { getFreshToken, configureConnector, decodeToken } from 'tc-accounts'
 import { getUserProfile } from '../api/users'
 
 const domainConnectorUrl = `https://accounts.${DOMAIN}/connector.html`
 
-console.log('iframe url ' + domainConnectorUrl)
+console.log('Domain =>' + DOMAIN)
+console.log('iframe url =>' + domainConnectorUrl)
+console.log('Accounts App url =>' + ACCOUNTS_APP_CONNECTOR_URL)
 
 configureConnector({
-  connectorUrl: domainConnectorUrl,
+  connectorUrl: ACCOUNTS_APP_CONNECTOR_URL,
   frameId: 'tc-accounts-iframe'
 })
 

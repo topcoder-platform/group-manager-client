@@ -19,7 +19,7 @@ const VideoSection = (props) => {
       />
       <div className="video-container">
         <video width="640" height="360" controls>
-          <source src="./static/help.webm" type="video/webm" />
+          <source src="./static/help.mp4" type="video/mp4" />
         </video>
         <div className="video-courtesy">
            Video credits: jaya.dhaka

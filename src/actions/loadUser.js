@@ -7,16 +7,19 @@ import {
 } from '../config/constants'
 
 import {
-  ACCOUNTS_APP_CONNECTOR_URL
+  ACCOUNTS_APP_CONNECTOR_URL,
+  DOMAIN
 } from '../../config/constants'
-console.log('iframe url ' + ACCOUNTS_APP_CONNECTOR_URL)
 
 import { getFreshToken, configureConnector, decodeToken } from 'tc-accounts'
 import { getUserProfile } from '../api/users'
 
+const domainConnectorUrl = `https://accounts.${DOMAIN}/connector.html`
+
+console.log('iframe url ' + domainConnectorUrl)
 
 configureConnector({
-  connectorUrl: 'https://accounts.topcoder.com/connector.html',
+  connectorUrl: domainConnectorUrl,
   frameId: 'tc-accounts-iframe'
 })
 

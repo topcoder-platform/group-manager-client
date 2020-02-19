@@ -9,6 +9,7 @@ import {
 import {
   ACCOUNTS_APP_CONNECTOR_URL
 } from '../../config/constants'
+console.log('iframe url ' + ACCOUNTS_APP_CONNECTOR_URL)
 
 import { getFreshToken, configureConnector, decodeToken } from 'tc-accounts'
 import { getUserProfile } from '../api/users'

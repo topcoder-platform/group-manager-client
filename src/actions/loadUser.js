@@ -16,7 +16,9 @@ import { getUserProfile } from '../api/users'
 
 const domainConnectorUrl = `https://accounts.${DOMAIN}/connector.html`
 
-console.log('iframe url ' + domainConnectorUrl)
+console.log('Domain =>' + DOMAIN)
+console.log('iframe url =>' + domainConnectorUrl)
+console.log('Accounts App url =>' + ACCOUNTS_APP_CONNECTOR_URL)
 
 configureConnector({
   connectorUrl: domainConnectorUrl,

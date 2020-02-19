@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { DOMAIN } from '../../../config/constants'
+import { DOMAIN } from '../../config/constants'
 import Avatar from 'appirio-tech-react-components/components/Avatar/Avatar'
 import { getAvatarResized, getFullNameWithFallback } from '../../helpers/tcHelpers'
 import './UserWithName.scss'
 
 const UserWithName = ({ handle, firstName, lastName, photoURL, photoSize, theme, isLink }) => {
-  const url = handle ? `//www.${DOMAIN}/members/${handle}/` : null
+  const url = handle ? `http://www.${DOMAIN}/members/${handle}/` : null
   const userFullName = getFullNameWithFallback({ handle, firstName, lastName })
   const avatar = (
     <Avatar

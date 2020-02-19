@@ -14,7 +14,6 @@ export function requiresAuthentication(Component) {
     }
 
     componentWillMount() {
-      console.log('********Call this...')
       this.checkAuth()
     }
 

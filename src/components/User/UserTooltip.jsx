@@ -3,7 +3,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Tooltip from 'appirio-tech-react-components/components/Tooltip/Tooltip'
 import Avatar from 'appirio-tech-react-components/components/Avatar/Avatar'
-import { DOMAIN } from '../../../config/constants'
+import { DOMAIN } from '../../config/constants'
 import { getAvatarResized, getFullNameWithFallback } from '../../helpers/tcHelpers'
 import IconDirectArrow from '../../assets/icons/icon-direct-arrow.svg'
 
@@ -41,7 +41,7 @@ const UserTooltip = ({ usr, id, previewAvatar, size, invitedLabel, showEmailOnly
         <div className="top-container">
           <div className="tt-col-avatar">
             { !showEmailOnly ? (
-              <a href={`//www.${DOMAIN}/members/${userHandle}/`} target="_blank" rel="noopener noreferrer" className="tt-user-avatar">
+              <a href={`https://www.${DOMAIN}/members/${userHandle}/`} target="_blank" rel="noopener noreferrer" className="tt-user-avatar">
                 {avatar}
               </a>
             ) : (

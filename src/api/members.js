@@ -1,6 +1,6 @@
 import _ from 'lodash'
 import { axiosInstance as axios } from './requestInterceptor'
-import { GROUPS_API_URL } from '../../config/constants'
+import { GROUPS_API_URL } from '../config/constants'
 
 import MockApi from './mockApi'
 
@@ -44,7 +44,6 @@ export function addUsersByHandle(groupId, handleArr) {
   }
   return axios.post(`${GROUPS_API_URL}/${groupId}/members/handle`, handleArr)
     .then( resp => {
-      console.log('***HERE***')
       return _.get(resp, 'data')
     }) 
 }

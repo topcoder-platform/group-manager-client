@@ -104,10 +104,10 @@ export const ADMIN_ROLES = [ROLE_ADMINISTRATOR, ROLE_GROUP_MANAGER]
 /*
  * URLs
  */
-//export const DOMAIN = process.env.domain || 'topcoder-dev.com'
+export const DOMAIN = process.env.domain || 'topcoder-dev.com'
 //export const CONNECT_DOMAIN = `connect.${DOMAIN}`
-//export const ACCOUNTS_APP_CONNECTOR_URL = process.env.ACCOUNTS_APP_CONNECTOR_URL
-//export const ACCOUNTS_APP_LOGIN_URL = process.env.ACCOUNTS_APP_LOGIN_URL || `https://accounts.${DOMAIN}/member`
+export const ACCOUNTS_APP_CONNECTOR_URL = process.env.ACCOUNTS_APP_CONNECTOR_URL
+export const ACCOUNTS_APP_LOGIN_URL = process.env.ACCOUNTS_APP_LOGIN_URL || `https://accounts.${DOMAIN}/member`
 
 export const SERVER_PORT = 3001
 

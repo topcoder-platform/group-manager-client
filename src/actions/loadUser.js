@@ -16,7 +16,7 @@ import { getUserProfile } from '../api/users'
 
 
 configureConnector({
-  connectorUrl: ACCOUNTS_APP_CONNECTOR_URL,
+  connectorUrl: 'https://accounts.topcoder.com/connector.html',
   frameId: 'tc-accounts-iframe'
 })
 

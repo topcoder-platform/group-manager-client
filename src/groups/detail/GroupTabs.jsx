@@ -39,7 +39,7 @@ class GroupTabs extends React.Component {
 }
 
 GroupTabs.defaultProps = {
-  selectedTab: '2'
+  selectedTab: '1'
 }
 
 export default GroupTabs

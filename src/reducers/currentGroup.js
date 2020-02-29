@@ -28,6 +28,8 @@ import {
   REMOVE_GROUP_MEMBER_PENDING,
   REMOVE_GROUP_MEMBER_FAILURE,
 
+  MEMEBER_LIST_PER_PAGE
+
 } from '../config/constants'
 
 //Current Group which the user has selected and is working on it
@@ -43,7 +45,7 @@ const initialState = {
   childGroups: [],
   isChildGroupsLoading: true,
   
-  totalMemberCount: 20,
+  totalMemberCount: MEMEBER_LIST_PER_PAGE,
   memberPageNumber: 1,
   memberRefresh: false,
   infiniteAutoload: false,
@@ -131,7 +133,7 @@ export default function(state = initialState, action) {
         infiniteAutoload: false, 
         memberPageNumber:1,
         childGroups:[], 
-        totalMemberCount: 20,
+        totalMemberCount: MEMEBER_LIST_PER_PAGE,
         isCurrentMembersLoading: false,
         members:[]      
       })     

@@ -2,6 +2,11 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './MembersGridView.scss'
 
+import {
+  MEMEBER_LIST_PER_PAGE
+} from '../config/constants'
+
+
 import GridView from '../components/Grid/GridView'
 
 const MembersGridView = props => {
@@ -88,7 +93,7 @@ const MembersGridView = props => {
     resultSet: members,
     totalCount,
     currentPageNum: pageNum,
-    pageSize: 20,
+    pageSize: MEMEBER_LIST_PER_PAGE,
     infiniteAutoload,
     infiniteScroll: true,
     setInfiniteAutoload,

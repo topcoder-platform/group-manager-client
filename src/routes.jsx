@@ -8,7 +8,7 @@ import GroupsToolBar from './components/TopBar/GroupsToolBar'
 import SingleGroupToolbar from './components/TopBar/SingleGroupToolBar'
 import { HelpToolBar, NewGroupToolBar } from './components/TopBar/GeneralToolBar'
 
-import { ACCOUNTS_APP_LOGIN_URL } from '../config/constants'
+import { ACCOUNTS_APP_LOGIN_URL } from './config/constants'
 
 
 

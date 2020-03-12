@@ -41,7 +41,7 @@ export default class GroupListNavHeader extends Component {
     return (
       <nav className="list-nav-container">
         <div className="left-wrapper">
-          All Groups ( {this.props.groups.length} )
+          All Groups ( {this.props.groups} of {this.props.total} )
           <a href="javascript:void(0)" className={'refresh-icon'} onClick={this.refreshClick}>
             <RefreshIcon height={16}/>
           </a>
@@ -66,5 +66,6 @@ export default class GroupListNavHeader extends Component {
 GroupListNavHeader.propTypes = {
   changeView: PT.func,
   currentView: PT.string,
-  groups: PT.instanceOf(Array)
+  groups: PT.number,
+  total: PT.number
 }

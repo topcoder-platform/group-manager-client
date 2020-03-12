@@ -5,7 +5,11 @@ import {
   LOAD_GROUP_PENDING,
   LOAD_GROUP_CACHE_SUCCESS,
 
-  EDIT_GROUP_SUCCESS
+  EDIT_GROUP_SUCCESS,
+
+  SET_GROUPS_INFINITE_AUTOLOAD,
+  SET_GROUPS_PAGE_NUM,
+  SET_GROUPS_PAGE_LOADING
 
 } from '../config/constants'
 
@@ -15,7 +19,11 @@ export const initialState = {
   isLoading : true,
   allGroups: [],  //All Groups that are child of Wipro - All
   isGroupSaveInProgress: false,
-  isGroupLoadComplete: false //Is Groups have been loaded in the state. 
+  isGroupLoadComplete: false, //Is Groups have been loaded in the state. 
+
+  isInfiniteAutoLoad: false, //Should the page start loading the groups automatically
+  groupPageNumber: 1, //The page that should be currently displayed
+  isLoadingCurrentPage: false //If the current Page load is in progress
 }
 
 function updateState(state, payload, extraInfo) {
@@ -36,6 +44,15 @@ export default function(state = initialState, action) {
   
   case LOAD_GROUP_CACHE_SUCCESS:
     return Object.assign({}, state, { isLoading: false})
+
+  case SET_GROUPS_PAGE_NUM: 
+    return Object.assign({}, state, { groupPageNumber : action.payload })
+
+  case SET_GROUPS_INFINITE_AUTOLOAD: 
+    return Object.assign({}, state, { isInfiniteAutoLoad : action.payload })
+
+  case SET_GROUPS_PAGE_LOADING: 
+    return Object.assign({}, state, { isLoadingCurrentPage : action.payload })
 
   case EDIT_GROUP_SUCCESS:
     return updateState(state, action.payload)

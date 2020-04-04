@@ -151,7 +151,7 @@ export const TOOLTIP_DEFAULT_DELAY = 300 // in ms
 
 // Projects list
 export const PROJECTS_LIST_PER_PAGE = 4
-export const GROUP_LIST_PER_PAGE = 20
+export const GROUP_LIST_PER_PAGE = 50
 
 export const MEMEBER_LIST_PER_PAGE = 10
 

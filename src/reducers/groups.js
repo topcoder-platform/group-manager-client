@@ -62,7 +62,10 @@ export default function(state = initialState, action) {
       { 
         isLoading: false,
         allGroups: action.payload, 
-        isGroupLoadComplete: true
+        isGroupLoadComplete: true,
+        groupPageNumber: 1,
+        isInfiniteAutoLoad: false,
+        isLoadingCurrentPage: false
       })
   
   case LOAD_GROUP_FAILURE:

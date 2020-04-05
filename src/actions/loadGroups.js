@@ -12,7 +12,12 @@ import {
   EDIT_GROUP_PENDING,
   EDIT_GROUP_SUCCESS,
   EDIT_GROUP_FAILURE,
-  LOAD_CURRENT_GROUP_FAILURE
+  LOAD_CURRENT_GROUP_FAILURE,
+
+  SET_GROUPS_INFINITE_AUTOLOAD,
+  SET_GROUPS_PAGE_NUM,
+  SET_GROUPS_PAGE_LOADING
+
 } from './../config/constants'
 import { getGroups, createGroup, updateGroup } from './../api/groups'
 import { findGroupById } from './../helpers/utils'
@@ -27,6 +32,28 @@ export function setCurrentGroupForEdit(isNew, inputGroup) {
       isNew,
       group
     }})
+  }
+}
+
+/*
+* Load Groups infinite scroll related methods
+*/
+export function setInfiniteAutoload(infiniteAutoload) {
+  return (dispatch) => {
+    dispatch({ type: SET_GROUPS_INFINITE_AUTOLOAD, payload: infiniteAutoload })
+  }
+}
+
+export function setPageNumber(pageNumber) {
+  return (dispatch) => {
+    dispatch({ type: SET_GROUPS_PAGE_LOADING, payload: true })
+
+    setTimeout(() => {
+      dispatch({ type: SET_GROUPS_PAGE_NUM, payload: pageNumber })
+      dispatch({ type: SET_GROUPS_PAGE_LOADING, payload: false })
+
+      return Promise.resolve()
+    }, 1500)
   }
 }
 

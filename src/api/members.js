@@ -7,6 +7,7 @@ import MockApi from './mockApi'
 //const BASE_API_ENDPOINT = 'http://localhost:3001/groups'
 const USE_MOCK = false
 
+const API_END_POINT = GROUPS_API_URL + '/groups'
 
 /**
  * @param {groupId} the group Id for whom to load data 
@@ -24,7 +25,7 @@ export function getGroupMembers(groupId, page) {
     pageParam = `?page=${page}` 
   }
 
-  return axios.get(`${GROUPS_API_URL}/${groupId}/members${pageParam}`)
+  return axios.get(`${API_END_POINT}/${groupId}/members${pageParam}`)
     .then( resp => {
       //Get data 
       let total = -1
@@ -42,7 +43,7 @@ export function addUsersByHandle(groupId, handleArr) {
   if (USE_MOCK) {
     return MockApi.addUsersByHandle(groupId, handleArr)
   }
-  return axios.post(`${GROUPS_API_URL}/${groupId}/members/handle`, handleArr)
+  return axios.post(`${API_END_POINT}/${groupId}/members/handle`, handleArr)
     .then( resp => {
       return _.get(resp, 'data')
     }) 
@@ -52,7 +53,7 @@ export function addChildGroupById(groupId, childGroupIdArr) {
   if (USE_MOCK) {
     return MockApi.addChildGroupsById(groupId, childGroupIdArr)
   }
-  return axios.post(`${GROUPS_API_URL}/${groupId}/members/handle`, childGroupIdArr)
+  return axios.post(`${API_END_POINT}/${groupId}/members/handle`, childGroupIdArr)
     .then( resp => {
       return _.get(resp, 'data')
     }) 
@@ -62,7 +63,7 @@ export function addUsersByEmail(groupId, emailArr) {
   if (USE_MOCK) {
     return MockApi.addUsersByHandle(groupId, emailArr)
   }
-  return axios.post(`${GROUPS_API_URL}/${groupId}/members/email`, emailArr)
+  return axios.post(`${API_END_POINT}/${groupId}/members/email`, emailArr)
     .then( resp => {
       return _.get(resp, 'data')
     }) 
@@ -73,7 +74,7 @@ export function removeMemberFromGroup(groupId, memberId) {
     return MockApi.removeMemberFromGroup(groupId, memberId)
   }
   
-  return axios.delete(`${GROUPS_API_URL}/${groupId}/members/${memberId}`)
+  return axios.delete(`${API_END_POINT}/${groupId}/members/${memberId}`)
     .then( resp => {
       return _.get(resp, 'data')
     }) 

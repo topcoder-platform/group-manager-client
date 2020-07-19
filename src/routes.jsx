@@ -6,22 +6,30 @@ import { renderApp } from './components/App/App'
 import TopBarContainer from './components/TopBar/TopBarContainer'
 import GroupsToolBar from './components/TopBar/GroupsToolBar'
 import SingleGroupToolbar from './components/TopBar/SingleGroupToolBar'
-import { HelpToolBar, NewGroupToolBar } from './components/TopBar/GeneralToolBar'
+
+import BatchesToolBar from './components/TopBar/BatchesToolBar'
+import { HelpToolBar, NewGroupToolBar, NewBatchToolBar } from './components/TopBar/GeneralToolBar'
 
 import { ACCOUNTS_APP_LOGIN_URL } from './config/constants'
 
 
-
 import GroupsList from './groups/GroupsList'
+import BatchList from './batches/BatchList'
 import GroupDetail from './groups/detail/GroupDetail'
 import HelpContainer from './help/HelpContainer'
 import NewGroupFormContainer from './groups/detail/NewGroupContainer'
+import NewBatchFormContainer from './batches/NewBatchContainer'
+
+
 import { validateLogin } from './actions/loadUser'
 
 const topBarWithGroupsToolBar = <TopBarContainer toolbar={ GroupsToolBar } />
 const topBarWithSingleGroupToolBar = <TopBarContainer toolbar={ SingleGroupToolbar} />
+const topBarWithBatchesToolBar = <TopBarContainer toolbar={ BatchesToolBar } />
 
 const newGroupToolBar = <TopBarContainer toolbar={NewGroupToolBar} />
+const newBatchToolBar = <TopBarContainer toolbar={NewBatchToolBar} />
+
 const helpToolBar = <TopBarContainer toolbar={HelpToolBar} />
 
 
@@ -61,6 +69,8 @@ class Routes extends React.Component {
     if (!isLoggedIn && isLoginFailed === false) {
       return (<div>Validating Login...</div>)
     }
+    
+
     if (isLoginFailed) {
       this.redirectToLoginPage()
       return null
@@ -73,6 +83,9 @@ class Routes extends React.Component {
           <Route path="/groups/new" render={renderApp(newGroupToolBar, <NewGroupFormContainer />)} />
           <Route path="/groups/:groupId" render={renderApp(topBarWithSingleGroupToolBar, <GroupDetail />)} />
           <Route path="/groups" render={renderApp(topBarWithGroupsToolBar, <GroupsList />)} />
+          <Route path="/batches/new" render={renderApp(newBatchToolBar, <NewBatchFormContainer />)} />
+          <Route path="/batches" render={renderApp(topBarWithBatchesToolBar, <BatchList />)} />
+
           <Route path="/help" render={renderApp(helpToolBar, <HelpContainer />)} />
         </Switch>
       )

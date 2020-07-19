@@ -82,6 +82,25 @@ export const SET_GROUPS_PAGE_LOADING = 'SET_GROUPS_PAGE_LOADING'
 
 /*********************************END GROUP CONSTANTS **********************/
 
+/***************************BATCH CONSTANTS *******************************/
+export const LOAD_BATCH_SUCCESS = 'LOAD_BATCH_SUCCESS'
+export const LOAD_BATCH_FAILURE = 'LOAD_BATCH_FAILURE'
+export const LOAD_BATCH_PENDING = 'LOAD_BATCH_PENDING'
+export const LOAD_BATCH_CACHE_SUCCESS = 'LOAD_BATCH_CACHE_SUCCESS'
+
+export const SET_BATCH_INFINITE_AUTOLOAD = 'SET_BATCH_INFINITE_AUTOLOAD'
+export const SET_BATCH_PAGE_NUM = 'SET_BATCH_PAGE_NUM'
+export const SET_BATCH_PAGE_LOADING = 'SET_BATCH_PAGE_LOADING'
+
+export const SET_BATCH_SORT_FIELD = 'SET_BATCH_SORT_FIELD'
+export const BATCH_LIST_PER_PAGE = 50
+
+export const EDIT_BATCH_SUCCESS = 'EDIT_BATCH_SUCCESS'
+export const EDIT_BATCH_PENDING = 'EDIT_BATCH_PENDING'
+export const EDIT_BATCH_FAILURE = 'EDIT_BATCH_FAILURE'
+
+/*************************** END BATCH CONSTANTS****************************/
+
 export const SET_CURRENT_GROUP_EDIT = 'SET_CURRENT_GROUP_EDIT'
 
 // projects list view types

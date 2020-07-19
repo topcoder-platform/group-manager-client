@@ -103,6 +103,13 @@ export const sortGroups = (groups, sortExpression) => {
   return sortArray(groups, sortExpression)
 }
 
+/**
+ * Sort the Batches array, based on Sort Expression
+ */
+export const sortBatches = (batches, sortExpression) => {
+  return sortArray(batches, sortExpression)
+}
+
 /** 
 * Sort the Members array, based on Sort Expression
 */

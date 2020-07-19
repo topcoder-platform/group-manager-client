@@ -18,7 +18,9 @@ import XMark from '../../assets/icons/x-mark.svg'
 const SectionToolBar = (props) => {
   const logo = <Link key="logo" to="/" className="logo"><ConnectLogoMono className="icon-connect-logo-mono" /></Link>
   const title = <div key="title" className="title">{props.title}</div>
-  const close = <Link key="close" to="/" className="close"><XMark className="icon-x-mark" /></Link>
+  //let returnLink = 
+
+  const close = <Link key="close" to={props.returnLink ? props.returnLink : '/'} className="close"><XMark className="icon-x-mark" /></Link>
   const menu = props.menu ? <div key="menu" className="menu">{props.menu}</div> : null
 
   return (
@@ -45,7 +47,8 @@ const SectionToolBar = (props) => {
 
 SectionToolBar.propTypes = {
   title: PropTypes.string.isRequired,
-  menu: PropTypes.array
+  menu: PropTypes.array,
+  returnLink: PropTypes.string
 }
 
 export default SectionToolBar

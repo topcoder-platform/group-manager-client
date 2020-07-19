@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import './NewGroupNavLink.scss'
 import BoldAdd from '../../assets/icons/ui-16px-1_bold-add.svg'
 
-const NewGroupNavLink = ({ compact=false, link }) => {
+const NewGroupNavLink = ({ compact=false, link, label }) => {
   if (compact && /^https?:\/\//.test(link)) {
     return (
       <a
@@ -31,14 +31,14 @@ const NewGroupNavLink = ({ compact=false, link }) => {
       <a
         href={link}
         className="tc-btn tc-btn-sm tc-btn-primary"
-      >+ New Group</a>
+      >{label ? label : '+ New Group'}</a>
     )
   } else {
     return (
       <div className="new-group-link">
         <Link
           to={link} className="tc-btn tc-btn-sm tc-btn-primary"
-        >+ New Group</Link>
+        >{label ? label : '+ New Group'}</Link>
       </div>
     )
   }
@@ -46,7 +46,8 @@ const NewGroupNavLink = ({ compact=false, link }) => {
 
 NewGroupNavLink.propTypes = {
   compact: PropTypes.bool,
-  link: PropTypes.string
+  link: PropTypes.string,
+  label: PropTypes.string
 }
 
 export default NewGroupNavLink

@@ -268,6 +268,50 @@ export function getGeneratedMembers(groupId, pageNum, pageSize) {
   return memberCollection
 }
 
+export function getAllBatches() {
+  return [
+    {
+      id: 5,
+      status: 'Completed',
+      total: 10,
+      processed: 5,
+      errors: 1,
+      created_at: '2020-06-01T02:34:41.000Z',
+      updated_at: '2020-06-01T02:34:41.000Z'
+    },
+    {
+      id: 4,
+      status: 'Not Started',
+      total: null,
+      processed: null,
+      errors: null,
+      created_at: '2020-06-01T01:53:13.000Z',
+      updated_at: '2020-06-01T01:53:13.000Z'
+    },
+    {
+      id: 3,
+      status: 'Queued',
+      total: 500,
+      processed: 100,
+      errors: 0,
+      created_at: '2020-06-01T01:52:50.000Z',
+      updated_at: '2020-06-01T01:52:50.000Z'
+    }]
+}
+
+export function newBatchJSON(input) {
+  return {
+    email: input.email,
+    id: 33,
+    status: 'Not Started',
+    total: null,
+    processed: null,
+    errors: null,
+    created_at: '2020-06-01T01:52:50.000Z',
+    updated_at: '2020-06-01T01:52:50.000Z'
+  }
+}
+
 export function getASampleMember() {
   return {id:'5cfe3a3e-32da-4b48-a5c3-39f7aa5cd9d3', 
     groupId:'8fcbc749-3e50-455b-ad38-4152c1e30b2b', 

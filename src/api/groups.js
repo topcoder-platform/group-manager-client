@@ -4,6 +4,7 @@ import { GROUPS_API_URL } from '../config/constants'
 import MockApi from './mockApi'
 
 const USE_MOCK = false
+const API_END_POINT =  GROUPS_API_URL + '/groups'
 
 /**
  * Get All Groups from the backend API
@@ -13,7 +14,9 @@ export function getGroups(useCache) {
     return MockApi.getGroups()
   }
   const queryParam = (useCache ? '' : '?refresh=true')
-  return axios.get(`${GROUPS_API_URL}${queryParam}`)
+  console.log(`${API_END_POINT}${queryParam}`)
+
+  return axios.get(`${API_END_POINT}${queryParam}`)
     .then( resp => {
       return _.get(resp, 'data')
     })
@@ -27,7 +30,7 @@ export function createGroup(group) {
   if (USE_MOCK) {
     return MockApi.createGroup(group)
   }
-  return axios.post(`${GROUPS_API_URL}`, group)
+  return axios.post(`${API_END_POINT}`, group)
     .then(resp => {
       return _.get(resp, 'data') 
     })
@@ -40,7 +43,7 @@ export function updateGroup(group) {
   if (USE_MOCK) {
     return MockApi.updateGroup(group)
   }
-  return axios.put(`${GROUPS_API_URL}/${group.id}`, group)
+  return axios.put(`${API_END_POINT}/${group.id}`, group)
     .then(resp => {
       return _.get(resp, 'data') 
     }) 

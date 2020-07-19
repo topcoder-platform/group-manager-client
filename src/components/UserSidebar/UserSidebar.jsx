@@ -22,6 +22,12 @@ const navLinks = [{
   exact: true,
 }, 
 {
+  label: 'BATCHES',
+  to: '/batches',
+  Icon: NotificationSettingsIcon,
+  iconClassName: 'fill',
+},
+{
   label: 'HELP',
   to: '/help',
   Icon: NotificationsIcon,

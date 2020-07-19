@@ -8,6 +8,10 @@ import {
   EDIT_GROUP_SUCCESS,
   EDIT_GROUP_FAILURE,
 
+  EDIT_BATCH_SUCCESS,
+  EDIT_BATCH_FAILURE,
+  LOAD_BATCH_FAILURE,
+
   ADD_MEMBERS_SUCCESS,
   REMOVE_GROUP_MEMBER_SUCCESS,
   REMOVE_GROUP_MEMBER_FAILURE,
@@ -56,6 +60,11 @@ function extractSucessfulAddMembers(payload) {
 
 export default function(state = {}, action) {
   switch(action.type) {
+  case EDIT_BATCH_SUCCESS: {
+    Alert.success('New Batch for User deactivation submitted successfully') 
+    return state 
+  }
+
   
   case ADD_MEMBERS_SUCCESS: {
     Alert.success(extractSucessfulAddMembers(action.payload))
@@ -75,6 +84,8 @@ export default function(state = {}, action) {
     return state
   }  
 
+  case LOAD_BATCH_FAILURE:
+  case EDIT_BATCH_FAILURE:
   case EDIT_GROUP_FAILURE:
   case LOAD_GROUP_FAILURE:  
   case REMOVE_GROUP_MEMBER_FAILURE:

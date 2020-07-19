@@ -1,7 +1,9 @@
 import { getAllGroupsJSON, newGroupJSON, removeMember,
-  updateGroupJSON, getGeneratedMembers, getAddUsersByHandle } from './mock.js'
+  updateGroupJSON, getGeneratedMembers, getAddUsersByHandle, newBatchJSON,
+  getAllBatches
+} from './mock.js'
 
-const DEFAULT_DELAY = 2000
+const DEFAULT_DELAY = 2 
 
 function MockApi() {
   this.allGroupsJSON = getAllGroupsJSON()
@@ -53,6 +55,22 @@ MockApi.prototype.removeMemberFromGroup = function(groupId, memberId) {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve(removeMember(groupId, memberId))
+    }, DEFAULT_DELAY)
+  })
+}
+
+MockApi.prototype.getAllBatches = function() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(getAllBatches())
+    }, DEFAULT_DELAY)
+  })
+}
+
+MockApi.prototype.createBatch = function(input) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(newBatchJSON(input))
     }, DEFAULT_DELAY)
   })
 }

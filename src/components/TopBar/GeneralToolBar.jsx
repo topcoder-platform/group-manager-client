@@ -15,3 +15,11 @@ export const NewGroupToolBar = () => (
     title={'New Group'}
   />
 )
+
+export const NewBatchToolBar = () => (
+  <SectionToolBar 
+    title={'New Batch - Bulk Deactivate Wipro Users'}
+    returnLink = {'/batches'}
+  />
+)
+

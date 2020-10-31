@@ -8,17 +8,22 @@ import GroupsToolBar from './components/TopBar/GroupsToolBar'
 import SingleGroupToolbar from './components/TopBar/SingleGroupToolBar'
 
 import BatchesToolBar from './components/TopBar/BatchesToolBar'
-import { HelpToolBar, NewGroupToolBar, NewBatchToolBar } from './components/TopBar/GeneralToolBar'
+import ConnectToolBar from './components/TopBar/ConnectToolBar'
+
+import { HelpToolBar, NewGroupToolBar, NewBatchToolBar, NewConnectToolBar } from './components/TopBar/GeneralToolBar'
 
 import { ACCOUNTS_APP_LOGIN_URL } from './config/constants'
 
 
 import GroupsList from './groups/GroupsList'
 import BatchList from './batches/BatchList'
+import ConnectList from './connect/ConnectList'
+
 import GroupDetail from './groups/detail/GroupDetail'
 import HelpContainer from './help/HelpContainer'
 import NewGroupFormContainer from './groups/detail/NewGroupContainer'
 import NewBatchFormContainer from './batches/NewBatchContainer'
+import NewConnectFormContainer from './connect/NewConnectContainer'
 
 
 import { validateLogin } from './actions/loadUser'
@@ -26,9 +31,12 @@ import { validateLogin } from './actions/loadUser'
 const topBarWithGroupsToolBar = <TopBarContainer toolbar={ GroupsToolBar } />
 const topBarWithSingleGroupToolBar = <TopBarContainer toolbar={ SingleGroupToolbar} />
 const topBarWithBatchesToolBar = <TopBarContainer toolbar={ BatchesToolBar } />
+const topBarWithConnectToolBar = <TopBarContainer toolbar={ ConnectToolBar } />
+
 
 const newGroupToolBar = <TopBarContainer toolbar={NewGroupToolBar} />
 const newBatchToolBar = <TopBarContainer toolbar={NewBatchToolBar} />
+const newConnectToolBar = <TopBarContainer toolbar={NewConnectToolBar} />
 
 const helpToolBar = <TopBarContainer toolbar={HelpToolBar} />
 
@@ -85,6 +93,9 @@ class Routes extends React.Component {
           <Route path="/groups" render={renderApp(topBarWithGroupsToolBar, <GroupsList />)} />
           <Route path="/batches/new" render={renderApp(newBatchToolBar, <NewBatchFormContainer />)} />
           <Route path="/batches" render={renderApp(topBarWithBatchesToolBar, <BatchList />)} />
+
+          <Route path="/connect/new" render={renderApp(newConnectToolBar, <NewConnectFormContainer />)} />
+          <Route path="/connect" render={renderApp(topBarWithConnectToolBar, <ConnectList />)} />
 
           <Route path="/help" render={renderApp(helpToolBar, <HelpContainer />)} />
         </Switch>

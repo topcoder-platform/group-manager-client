@@ -28,6 +28,12 @@ const navLinks = [{
   iconClassName: 'fill',
 },
 {
+  label: 'CONNECT',
+  to: '/connect',
+  Icon: AccountSecurityIcon,
+  iconClassName: 'fill',
+},
+{
   label: 'HELP',
   to: '/help',
   Icon: NotificationsIcon,

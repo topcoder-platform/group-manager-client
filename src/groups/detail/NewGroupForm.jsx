@@ -8,6 +8,7 @@ import PropTypes from 'prop-types'
 import FormsyForm from 'appirio-tech-react-components/components/Formsy'
 import Textarea from 'appirio-tech-react-components/components/Formsy/Textarea'
 import Checkbox from 'appirio-tech-react-components/components/Formsy/Checkbox'
+import Select from 'appirio-tech-react-components/components/Formsy/FormsySelect'
 
 import LoadingIndicator from '../../components/LoadingIndicator/LoadingIndicator'
 
@@ -49,6 +50,37 @@ class NewGroupForm extends Component {
     if (this.state.dirty !== isChanged) {
       this.setState({ dirty: isChanged })
     }
+  }
+
+
+  getActiveStatusEdit() {
+
+    if (this.props.isNew) {
+      return null
+    }
+    return (
+      <div className="field">
+        <div className="label">
+          <span styleName="fieldLabelText">Status</span>&nbsp;
+          <sup styleName="requiredMarker">*</sup>
+        </div>
+        <Select
+          wrapperClass="input-field"
+          autoResize="true"
+          name="status"
+          value={this.props.editGroup.status || 'active'}
+          options = {[
+            {value:'active', label: 'Active'},
+            {value:'inactive', label: 'InActive'}
+          ]}
+          required
+        />
+        <div className="helpText">
+            ( An inactive group will not be visible in listview )
+        </div>
+      </div>
+      
+    )
   }
 
   getAddSelfToGroup() {
@@ -140,6 +172,9 @@ class NewGroupForm extends Component {
                 required
               />
             </div>
+
+            {/* Show Edit status during group edit */}    
+            {this.getActiveStatusEdit()}    
 
             {/* Add Self to the new group */}
             {this.getAddSelfToGroup()}    

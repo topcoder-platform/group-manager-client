@@ -60,7 +60,21 @@ const GroupsGridView = props => {
           </div>
         )
       }
-    }, {
+    }, 
+    {
+      id: 'status',
+      headerLabel: 'Status',
+      sortable: true,
+      classes: 'item-status-date',
+      renderText: item => {
+        return (
+          <div className="spacing time-container">
+            {_.unescape(_.capitalize(item.status))}
+          </div>
+        )
+      }
+    },
+    {
       id: 'createdAt',
       headerLabel: 'Created',
       sortable: true,

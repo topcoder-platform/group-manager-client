@@ -5,9 +5,11 @@
  */
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import _ from 'lodash'
 import FormsyForm from 'appirio-tech-react-components/components/Formsy'
 import Textarea from 'appirio-tech-react-components/components/Formsy/Textarea'
 import Checkbox from 'appirio-tech-react-components/components/Formsy/Checkbox'
+import Select from 'appirio-tech-react-components/components/Formsy/FormsySelect'
 
 import LoadingIndicator from '../../components/LoadingIndicator/LoadingIndicator'
 
@@ -22,6 +24,7 @@ class NewGroupForm extends Component {
     this.state = {
       valid: false,
       dirty: false,
+      active: true,
     }
     this.onSubmit = this.onSubmit.bind(this)
     this.onValid = this.onValid.bind(this)
@@ -50,6 +53,60 @@ class NewGroupForm extends Component {
       this.setState({ dirty: isChanged })
     }
   }
+
+
+  getActiveStatusEdit() {
+
+    if (this.props.isNew) {
+      return null
+    }
+
+    const currentStatus =  _.lowerCase(_.get(this.props.editGroup, 'status', 'active'));
+    const isInActiveGroup = (currentStatus === 'inactive')
+    if (isInActiveGroup) {
+      return (
+        <div className="field">
+          <div className="label">
+            <span styleName="fieldLabelText">Status</span>&nbsp;
+            <sup styleName="requiredMarker">*</sup>
+          </div>
+          <div>
+            {_.capitalize(_.get(this.props.editGroup, 'status'))}
+          </div>  
+          <div className="helpText">
+                 &nbsp;( Inactive group is non editable ) 
+          </div>
+        </div>  
+      )
+    }
+
+    return (
+      <div className="field">
+        <div className="label">
+          <span styleName="fieldLabelText">Status</span>&nbsp;
+          <sup styleName="requiredMarker">*</sup>
+        </div>
+        <Select
+          wrapperClass="input-field"
+          autoResize="true"
+          name="status"
+          value={this.props.editGroup.status || 'active'}
+          options = {[
+            {value:'active', label: 'Active'},
+            {value:'inactive', label: 'InActive'}
+          ]}
+          required
+        />
+        <div className="helpText">
+          <div>
+              ( Setting a group "Inactive" will make it non editable )
+          </div>
+        </div>
+      </div>
+      
+    )
+  }
+
 
   getAddSelfToGroup() {
     if (this.props.isNew) {
@@ -85,7 +142,10 @@ class NewGroupForm extends Component {
   render() {
 
     const { isNew } = this.props 
-
+    
+    const currentStatus =  _.lowerCase(_.get(this.props.editGroup, 'status', 'active'))
+    const isInActiveGroup = (currentStatus === 'inactive')
+    
     return (
       <div styleName="main">
         <h1 styleName="title">{isNew ? 'New Group' : 'Edit Group'}</h1>
@@ -141,6 +201,9 @@ class NewGroupForm extends Component {
               />
             </div>
 
+            {/* Show Edit status during group edit */}    
+            {this.getActiveStatusEdit()}    
+
             {/* Add Self to the new group */}
             {this.getAddSelfToGroup()}    
 
@@ -148,7 +211,10 @@ class NewGroupForm extends Component {
               <button
                 type="submit"
                 className="tc-btn tc-btn-primary"
-                disabled={this.props.isSaving || !this.state.valid || !this.state.dirty}
+                disabled={(this.props.isSaving || 
+                          !this.state.valid || 
+                          isInActiveGroup ||
+                          !this.state.dirty)}
               >
             Save 
               </button>

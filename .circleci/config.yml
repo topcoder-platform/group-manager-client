@@ -116,7 +116,7 @@ workflows:
           context : org-global
           filters:
             branches:
-              only: ['develop']    
+              only: ['develop', 'new-auth']    
       
       - build-prod:
           context : org-global
@@ -130,7 +130,7 @@ workflows:
             - build-dev
           filters:
             branches:
-              only: ['develop']
+              only: ['develop', 'new-auth']
       
       - deployProd:
           context : org-global

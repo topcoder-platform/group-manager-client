@@ -49,7 +49,7 @@ class Routes extends React.Component {
 
   redirectToLoginPage() {
     console.log('redirecting to login.')
-    window.location = ACCOUNTS_APP_LOGIN_URL
+    window.location = ACCOUNTS_APP_LOGIN_URL + '?retUrl=' + window.location.href
   }
 
   checkAuth() {

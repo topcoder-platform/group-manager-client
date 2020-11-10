@@ -61,7 +61,7 @@ class TopBarContainer extends React.Component {
     const userImage = getAvatarResized(bigPhotoURL, 40)
     const userName = getFullNameWithFallback(user)
     const homePageUrl = `${window.location.protocol}//${window.location.host}/`
-    const logoutLink = `https://accounts.${DOMAIN}/#!/logout?retUrl=${homePageUrl}`
+    const logoutLink = `${ACCOUNTS_APP_LOGIN_URL}?logout=true&retUrl=${homePageUrl}`
 
     const logoutClick = (evt) => {
       evt.preventDefault()

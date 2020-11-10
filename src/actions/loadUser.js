@@ -6,7 +6,7 @@ import {
   LOAD_USER_PENDING,
   ADMIN_ROLES
 } from '../config/constants'
-import { getFreshToken, configureConnector, decodeToken } from 'tc-accounts'
+import { getFreshToken, configureConnector, decodeToken } from 'tc-auth-lib'
 import { getUserProfile } from '../api/users'
 
 

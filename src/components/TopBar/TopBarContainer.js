@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router-dom'
 import _ from 'lodash'
 import UserDropdown from 'appirio-tech-react-components/components/UserDropdownMenu/UserDropdownMenu'
 import {
-  DOMAIN
+  DOMAIN, ACCOUNTS_APP_LOGIN_URL
 } from '../../../config/constants'
 
 import ConnectLogoMono from '../../assets/icons/connect-logo-mono.svg'

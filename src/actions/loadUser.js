@@ -7,7 +7,7 @@ import {
   ACCOUNTS_APP_CONNECTOR_URL,
   DOMAIN
 } from '../config/constants'
-import { getFreshToken, configureConnector, decodeToken } from 'tc-auth-lib'
+import { getFreshToken, configureConnector, decodeToken } from '@topcoder-platform/tc-auth-lib'
 import { getUserProfile } from '../api/users'
 
 const domainConnectorUrl = `https://accounts.${DOMAIN}/connector.html`

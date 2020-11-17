@@ -18,6 +18,7 @@ module.exports = {
   PHOTO_LINK_LOCATION: 'https://community.topcoder-dev.com',
 
   ACCOUNTS_APP_URL             : 'https://accounts-auth0.topcoder-dev.com',
+  ACCOUNTS_APP_LOGIN_URL       : 'https://accounts-auth0.topcoder-dev.com',
   ACCOUNTS_APP_CONNECTOR_URL   : 'https://accounts-auth0.topcoder-dev.com',
 
 

@@ -4,7 +4,8 @@ import { Link, withRouter } from 'react-router-dom'
 import _ from 'lodash'
 import UserDropdown from 'appirio-tech-react-components/components/UserDropdownMenu/UserDropdownMenu'
 import {
-  DOMAIN
+  DOMAIN,
+  ACCOUNTS_APP_URL
 } from '../../../config/constants'
 
 import ConnectLogoMono from '../../assets/icons/connect-logo-mono.svg'
@@ -59,7 +60,7 @@ class TopBarContainer extends React.Component {
     const userImage = getAvatarResized(bigPhotoURL, 40)
     const userName = getFullNameWithFallback(user)
     const homePageUrl = `${window.location.protocol}//${window.location.host}/`
-    const logoutLink = `https://accounts.${DOMAIN}/#!/logout`
+    const logoutLink = `${ACCOUNTS_APP_URL}?logout=true&retUrl=${homePageUrl}`
 
     const logoutClick = (evt) => {
       evt.preventDefault()

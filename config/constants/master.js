@@ -16,9 +16,8 @@ module.exports = {
   MAIN_URL           : 'https://www.topcoder.com',
   PHOTO_LINK_LOCATION: 'https://community.topcoder.com',
 
-  ACCOUNTS_APP_URL             : 'https://accounts.topcoder.com/#!/member',
-  ACCOUNTS_APP_LOGIN_URL       : 'https://accounts.topcoder.com/#!/member',
-  ACCOUNTS_APP_CONNECTOR_URL   : 'https://accounts.topcoder.com/connector.html',
+  ACCOUNTS_APP_URL             : 'https://accounts-auth0.topcoder.com',
+  ACCOUNTS_APP_CONNECTOR_URL   : 'https://accounts-auth0.topcoder.com',
 
   MAINTENANCE_MODE: process.env.PROD_MAINTENANCE_MODE,
 

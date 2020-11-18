@@ -23,3 +23,10 @@ export const NewBatchToolBar = () => (
   />
 )
 
+export const NewConnectToolBar = () => (
+  <SectionToolBar 
+    title={'New Connect - Edit Project Information'}
+    returnLink = {'/connect'}
+  />
+)
+

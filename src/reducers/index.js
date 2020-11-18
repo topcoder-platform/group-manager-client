@@ -8,6 +8,7 @@ import currentGroup from './currentGroup'
 import alerts from './alerts'
 import addMembers from './addMembers'
 import batch from './batch'
+import connect from './connect'
 
 
 export default combineReducers({
@@ -19,5 +20,6 @@ export default combineReducers({
   groups,
   addMembers,
   childGroups,
-  batch
+  batch,
+  connect
 })

@@ -1,6 +1,5 @@
 import _ from 'lodash'
 
-
 export function getAllGroupsJSON() {
   return (
     [
@@ -268,6 +267,77 @@ export function getGeneratedMembers(groupId, pageNum, pageSize) {
   return memberCollection
 }
 
+export function getConnect(connectId) {
+  return {
+    description:'Corporate Card requirements are captured by the owner.', 
+    details:{
+      project_data: {
+        planned_end_date:'1601490600', 
+        group_name:'NA', 
+        project_code:'HEA', 
+        vertical:'HEALTHCARE', 
+        du:'CEP', 
+        wbs_code:'HEAL', 
+        customer_project:'Yes', 
+        onsite_efforts:'0', 
+        sow_number:'28008828', 
+        bu:'HLS', 
+        group_customer_name:'LABORATORY GOLD', 
+        cost_center:'T5132', 
+        offshore_efforts:'63', 
+        planned_start_date:'1601317800', 
+        part_of_ng3:'Yes', 
+        company_code:'WT01', 
+        invoice_type:'M', 
+        approved_amount:'945', 
+        project_classification_code:'AD'
+      },
+    }, 
+    id: connectId, 
+    directProjectId:28242, 
+    updatedAt:'2020-09-30T11:37:10.254Z', 
+    updatedBy:-101, version:'v2', external:null, 
+    createdBy:41061144, name:'Corporate Card Implementation', 
+    status:'in_review'
+  }
+}
+
+export function getAllConnect() {
+  return [
+    {
+      id: 4,
+      name: 'Demo Project',
+      connect_id: 16543,
+      status: 'Submitted',
+      created_at: '2020-10-01T01:18:07.000Z',
+      updated_at: '2020-10-01T01:18:07.000Z'
+    },
+    {
+      id: 3,
+      name: 'Web Service Implementation',
+      connect_id: 25582,
+      status: 'Error',
+      created_at: '2020-09-30T06:42:57.000Z',
+      updated_at: '2020-09-30T06:42:57.000Z'
+    },
+    {
+      id: 2,
+      name: 'Andriod App',
+      connect_id: 25582,
+      status: 'Submitted',
+      created_at: '2020-09-30T06:42:29.000Z',
+      updated_at: '2020-09-30T06:42:29.000Z'
+    },
+    {
+      id: 1,
+      name: 'Corporate Card Implementation',
+      connect_id: 25582,
+      status: 'Completed',
+      created_at: '2020-09-30T06:40:45.000Z',
+      updated_at: '2020-09-30T06:40:45.000Z'
+    }]
+}
+
 export function getAllBatches() {
   return [
     {
@@ -297,6 +367,17 @@ export function getAllBatches() {
       created_at: '2020-06-01T01:52:50.000Z',
       updated_at: '2020-06-01T01:52:50.000Z'
     }]
+}
+
+export function getConnectJSON(input) {
+  return {
+    id: 100,
+    name: input.name,
+    connect_id: input.id,
+    status: 'Submitted',
+    created_at: '2020-10-01T01:18:07.000Z',
+    updated_at: '2020-10-01T01:18:07.000Z'
+  }
 }
 
 export function newBatchJSON(input) {

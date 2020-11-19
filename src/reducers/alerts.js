@@ -20,7 +20,8 @@ import {
   LOAD_CURRENT_GROUP_MEMBERS_FAILURE,
 
   EDIT_CONNECT_SUCCESS,
-  EDIT_CONNECT_FAILURE
+  EDIT_CONNECT_FAILURE,
+  LOAD_CONNECT_ID_FAILURE
 
 } from '../config/constants'
 /* eslint-enable no-unused-vars */
@@ -88,10 +89,11 @@ export default function(state = {}, action) {
   }  
 
   case EDIT_CONNECT_SUCCESS: {
-    Alert.success(`CONNECT ${_.get(action, 'payload.name', '')} saved successfully`)
+    Alert.success(`Connect ${_.get(action, 'payload.name', '')} change request accepted successfully`)
     return state
   }  
 
+  case LOAD_CONNECT_ID_FAILURE:
   case EDIT_CONNECT_FAILURE:
   case LOAD_BATCH_FAILURE:
   case EDIT_BATCH_FAILURE:

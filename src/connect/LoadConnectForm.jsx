@@ -6,8 +6,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import FormsyForm from 'appirio-tech-react-components/components/Formsy'
-import Textarea from 'appirio-tech-react-components/components/Formsy/Textarea'
-import Checkbox from 'appirio-tech-react-components/components/Formsy/Checkbox'
 
 import LoadingIndicator from '../components/LoadingIndicator/LoadingIndicator'
 
@@ -52,7 +50,7 @@ class LoadConnectForm extends Component {
   getIsSavingIndicator() {
    
     //If no save in progress, ignore
-    if (!this.props.isSaving) {
+    if (!this.props.currentConnectLoading) {
       return null
     }
     
@@ -65,7 +63,6 @@ class LoadConnectForm extends Component {
   }
 
   render() {
-
     return (
       <div styleName="main">
         <h1 styleName="title">Load Connect Project - Information Update</h1>
@@ -86,7 +83,7 @@ class LoadConnectForm extends Component {
               </div>
               <TCFormFields.TextInput
                 wrapperClass="input-field"
-                type="text"
+                type="number"
                 name="id"
                 value={this.props.newConnect.id || ''}
               />
@@ -97,7 +94,7 @@ class LoadConnectForm extends Component {
               <button
                 type="submit"
                 className="tc-btn tc-btn-primary"
-                disabled={this.props.isSaving || !this.state.valid || !this.state.dirty}
+                disabled={this.props.currentConnectLoading || !this.state.valid || !this.state.dirty}
               >
                 Load Project 
               </button>

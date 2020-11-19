@@ -25,6 +25,7 @@ export const initialState = {
   allConnect: [],  //All Connect that are already available
   isConnectSaveInProgress: false,
   isConnectLoadComplete: false, //Is Connect have been loaded in the state. 
+  projectLoadSuccessful: false,
       
   isInfiniteAutoLoad: false, //Should the page start loading the connect automatically
   connectPageNumber: 1, //The page that should be currently displayed
@@ -56,17 +57,20 @@ export default function(state = initialState, action) {
     
   case LOAD_CONNECT_ID_PENDING:
     return Object.assign({}, state, {currentConnectLoading: true,
-      currentConnect: {id: action.payload}})
+      currentConnect: {id: action.payload.connectId}})
   
   case LOAD_CONNECT_ID_SUCCESS:
-    return Object.assign({}, state, {currentConnectLoading: false,
+    return Object.assign({}, state, {projectLoadSuccessful: true,
+      currentConnectLoading: false,
       currentConnect: action.payload.response})
     
   case LOAD_CONNECT_ID_FAILURE:
-    return Object.assign({}, state, {currentConnectLoading: false})
+    return Object.assign({}, state, {projectLoadSuccessful: false,
+      currentConnectLoading: false})
     
   case RESET_NEW_CONNECT_ID:
-    return Object.assign({}, state, {currentConnect: {detail:{}, id: null}})
+    return Object.assign({}, state, {projectLoadSuccessful:false, 
+      currentConnect: {detail:{}, id: null}})
         
   case SET_CONNECT_SORT_FIELD:
     return Object.assign({}, state, {sortField : action.payload})

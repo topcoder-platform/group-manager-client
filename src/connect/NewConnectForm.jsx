@@ -4,11 +4,7 @@
  * Edit -> Show Label as Edit
  */
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import FormsyForm from 'appirio-tech-react-components/components/Formsy'
-import Select from 'appirio-tech-react-components/components/Formsy/FormsySelect'
-import SelectDropdown from 'appirio-tech-react-components/components/SelectDropdown/SelectDropdown'
-
 
 import LoadingIndicator from '../components/LoadingIndicator/LoadingIndicator'
 
@@ -36,8 +32,6 @@ class NewConnectForm extends Component {
     this.props.saveRecord(projectData, this.state.projectStatus)
   }
 
- 
-
   onValid() {
     this.setState({valid: true})
   }
@@ -53,6 +47,13 @@ class NewConnectForm extends Component {
     this.setState({dirty: true})
   }
 
+  getIsLoadingIndicator() {
+    return (
+      <div className={'topSpace'}>
+        <LoadingIndicator label={'Loading Project' + this.props.newConnect.Id  + '...'} />
+      </div>
+    )
+  }
 
   getIsSavingIndicator() {
    
@@ -85,16 +86,33 @@ class NewConnectForm extends Component {
     }
   }
 
+  getErrorComponent(isError) {
+    if(isError) {
+      return (
+        <div className="notTopgear">Error: Project Data not found. 
+          Its likely the project does not belong to Topgear</div>
+      )
+    }
+    return null
+  }
+
   render() {
+
+    let isError = false
+    if(this.props.currentConnectLoading) {
+      return this.getIsLoadingIndicator()
+    }
 
     if (!this.props.newConnect.details) {
       return null
     }
-    const projectData = this.props.newConnect.details.project_data
+    let projectData = this.props.newConnect.details.project_data
     if (!projectData) {
-      return null
+      projectData = {}
+      isError = true
     }
     this.convertMillisecondsToDate(projectData)
+    const errorComponent = this.getErrorComponent(isError)
 
     return (
       <div styleName="main">
@@ -159,6 +177,8 @@ class NewConnectForm extends Component {
             </div>
 
             <div className="section-heading">Update Details</div>
+
+            {errorComponent}
         
             {/* Group Name field with validations applied */}
             <div className="field">

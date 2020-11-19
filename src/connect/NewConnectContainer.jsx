@@ -55,12 +55,13 @@ class NewConnectContainer extends React.Component {
 
     let displayForm = null
     // if id is defined use the New Connect form else Load
-    if(this.props.currentConnect && this.props.currentConnect.id) {
+    if(this.props.currentConnect && this.props.projectLoadSuccessful) {
       displayForm = (
         <NewConnectForm
           newConnect={this.props.currentConnect}
           isSaving={this.props.isSaving}
           saveRecord={this.saveConnect}
+          currentConnectLoading={this.props.currentConnectLoading}
           resetNewConnectId={this.props.resetNewConnectId}
         />
       ) 
@@ -70,10 +71,9 @@ class NewConnectContainer extends React.Component {
         <LoadConnectForm 
           loadConnect={this.loadConnectProject}
           newConnect={this.props.currentConnect}
-          isSaving={this.props.currentConnectLoading}
+          currentConnectLoading={this.props.currentConnectLoading}
         />)  
     }
-
 
     return (
       <TwoColsLayout>
@@ -100,10 +100,11 @@ class NewConnectContainer extends React.Component {
 const mapStateToProps = ({ connect }) => {
   return {
     isSaving: connect.isSaving,
-    currentConnect: connect.currentConnect
+    currentConnect: connect.currentConnect,
+    projectLoadSuccessful: connect.projectLoadSuccessful,
+    currentConnectLoading: connect.currentConnectLoading
   }
 }
-
 
 const mapDispatchToProps = {
   loadConnect,

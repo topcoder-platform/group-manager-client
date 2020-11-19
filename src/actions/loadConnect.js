@@ -79,7 +79,8 @@ export function saveConnect(projectData) {
 
 // Load the connect project that the user has input
 export function loadConnect(connectId) {
-
+  connectId = _.trim(connectId)
+  
   return ( dispatch ) => {
     dispatch({ type: LOAD_CONNECT_ID_PENDING, payload: {
       connectId

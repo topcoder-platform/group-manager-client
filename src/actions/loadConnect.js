@@ -65,7 +65,10 @@ export function saveConnect(projectData) {
 
     dispatch({type : EDIT_CONNECT_PENDING})
     //If Id exists its an update operation, else its an insert operation
-    const connectUpsertPromise = createConnect(connect)
+
+    const newConnect = _.cloneDeep(connect)
+    newConnect.details.project_data = projectData
+    const connectUpsertPromise = createConnect(newConnect)
 
     return connectUpsertPromise
       .then( response => {

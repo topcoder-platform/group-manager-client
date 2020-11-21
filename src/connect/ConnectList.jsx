@@ -99,8 +99,6 @@ class ConnectList extends Component {
 
   render() {
     const { user, allConnect, isLoading, currentSortField } = this.props
-
-    console.log(currentSortField)
     
     const sortedConnect = sortBatches(allConnect, currentSortField)
     const displayedBatchesCount = Math.min(this.props.pageNum * BATCH_LIST_PER_PAGE, allConnect.length)

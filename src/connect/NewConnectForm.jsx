@@ -29,6 +29,13 @@ class NewConnectForm extends Component {
 
   //Send data to the base handler for saving
   onSubmit(projectData) {
+    if (projectData.planned_start_date_dt) {      
+      projectData.planned_start_date = this.convertDateToSeconds(projectData.planned_start_date_dt)
+    }
+    if(projectData.planned_end_date_dt) {
+      projectData.planned_end_date = this.convertDateToSeconds(projectData.planned_end_date_dt)
+    }
+
     this.props.saveRecord(projectData, this.state.projectStatus)
   }
 
@@ -73,6 +80,13 @@ class NewConnectForm extends Component {
   convertDateToString(date) {
     return date.getFullYear().toString() + '-' + (date.getMonth() + 1).toString().padStart(2, 0) +
     '-' + date.getDate().toString().padStart(2, 0)
+  }
+
+  convertDateToSeconds(dt) {
+    if (dt) {
+      return (new Date(dt).getTime() / 1000)
+    }
+    return null
   }
 
   convertMillisecondsToDate(projectData) {

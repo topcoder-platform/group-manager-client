@@ -1,6 +1,9 @@
 import { getAllGroupsJSON, newGroupJSON, removeMember,
   updateGroupJSON, getGeneratedMembers, getAddUsersByHandle, newBatchJSON,
-  getAllBatches
+  getAllBatches,
+  getAllConnect,
+  getConnect,
+  getConnectJSON
 } from './mock.js'
 
 const DEFAULT_DELAY = 2 
@@ -75,5 +78,28 @@ MockApi.prototype.createBatch = function(input) {
   })
 }
 
+MockApi.prototype.getAllConnect = function() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(getAllConnect())
+    }, DEFAULT_DELAY)
+  })
+}
+
+MockApi.prototype.getConnect = function(connectId) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(getConnect(connectId))
+    }, DEFAULT_DELAY)
+  })
+}
+
+MockApi.prototype.createConnect = function(connect) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(getConnectJSON(connect.id))
+    }, DEFAULT_DELAY)
+  })
+}
 
 export default new MockApi()

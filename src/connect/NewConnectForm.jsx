@@ -270,6 +270,18 @@ class NewConnectForm extends Component {
 
             <div className="field">
               <div className="label">
+                <span styleName="fieldLabelText">Execution Hub</span>&nbsp;
+              </div>
+              <TCFormFields.TextInput
+                wrapperClass="input-field"
+                type="text"
+                name="execution_hub"
+                value={projectData.execution_hub || ''}
+              />
+            </div>
+
+            <div className="field">
+              <div className="label">
                 <span styleName="fieldLabelText">Group Customer Name</span>&nbsp;
               </div>
               <TCFormFields.TextInput
@@ -387,6 +399,18 @@ class NewConnectForm extends Component {
                 type="text"
                 name="project_code"
                 value={projectData.project_code || ''}
+              />
+            </div>
+
+            <div className="field">
+              <div className="label">
+                <span styleName="fieldLabelText">Sector</span>&nbsp;
+              </div>
+              <TCFormFields.TextInput
+                wrapperClass="input-field"
+                type="text"
+                name="sector"
+                value={projectData.sector || ''}
               />
             </div>
 

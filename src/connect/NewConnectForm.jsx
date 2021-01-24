@@ -416,6 +416,18 @@ class NewConnectForm extends Component {
 
             <div className="field">
               <div className="label">
+                <span styleName="fieldLabelText">SMU</span>&nbsp;
+              </div>
+              <TCFormFields.TextInput
+                wrapperClass="input-field"
+                type="text"
+                name="smu"
+                value={projectData.smu || ''}
+              />
+            </div>
+
+            <div className="field">
+              <div className="label">
                 <span styleName="fieldLabelText">Sow Number</span>&nbsp;
               </div>
               <TCFormFields.TextInput
@@ -423,6 +435,18 @@ class NewConnectForm extends Component {
                 type="text"
                 name="sow_number"
                 value={projectData.sow_number || ''}
+              />
+            </div>
+
+            <div className="field">
+              <div className="label">
+                <span styleName="fieldLabelText">Sub Execution Hub</span>&nbsp;
+              </div>
+              <TCFormFields.TextInput
+                wrapperClass="input-field"
+                type="text"
+                name="sub_execution_hub"
+                value={projectData.sub_execution_hub || ''}
               />
             </div>
 

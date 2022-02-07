@@ -196,7 +196,7 @@ export const TOOLTIP_DEFAULT_DELAY = 300 // in ms
 export const PROJECTS_LIST_PER_PAGE = 4
 export const GROUP_LIST_PER_PAGE = 50
 
-export const MEMEBER_LIST_PER_PAGE = 100
+export const MEMEBER_LIST_PER_PAGE = 10
 
 
 // 60px of primary toolbar height + 50px of secondary toolbar height + 10px to make some margin

@@ -130,7 +130,7 @@ workflows:
             - build-dev
           filters:
             branches:
-              only: ['develop', 'new-auth']
+              only: ['develop', 'feature/jira-plat-616']
       
       - deployProd:
           context : org-global

@@ -8,8 +8,9 @@ deploy_defaults: &deploy_defaults
 install_dependency: &install_dependency
           name: Installation of build and deployment dependencies.
           command: |
-            sudo apt install python3-dev python3-pip -y
-            sudo pip3 install awscli --upgrade        
+            sudo apt install python-dev python-pip -y
+            sudo apt install awscli -y
+            aws --version
 
 install_deploysuite: &install_deploysuite
           name: Installation of install_deploysuite.

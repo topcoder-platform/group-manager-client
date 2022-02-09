@@ -19,7 +19,12 @@ import {
 
   REMOVE_GROUP_MEMBER_PENDING,
   REMOVE_GROUP_MEMBER_SUCCESS,
-  REMOVE_GROUP_MEMBER_FAILURE
+  REMOVE_GROUP_MEMBER_FAILURE,
+
+  REMOVE_MEMBERS_PENDING,
+  REMOVE_MEMBERS_SUCCESS,
+  REMOVE_MEMBERS_FAILURE
+
 } from './../config/constants'
 
 import { getGroupMembers, addUsersByHandle, addUsersByEmail, removeMemberFromGroup } from './../api/members'
@@ -212,6 +217,44 @@ export function removeMember(member) {
       })
       .catch(err => {
         dispatch( {type : REMOVE_GROUP_MEMBER_FAILURE, payload : {err} })
+      })
+  })
+}
+
+// remove members -----
+
+export function removeUserMembersToGroup(groupId, handleArr, emailArr) {
+  const allMembers = [] 
+
+  handleArr = _.uniq(handleArr)
+  emailArr = _.uniq(emailArr)
+
+  _.forEach(handleArr, (handle) => {
+    allMembers.push( {membershipType: 'User', identifier: 'Handle', data: handle})
+  })
+  _.forEach(emailArr, (email) => {
+    allMembers.push( {membershipType: 'User', identifier: 'Email', data: email})
+  })
+
+  return ((dispatch) => {
+    dispatch({type: REMOVE_MEMBERS_PENDING, payload: {groupId, members: allMembers}})
+    
+    // If handle has data
+    addUsersHandle(groupId, handleArr)
+      .then(result => {
+        return Promise.resolve(processMemberResult(result, allMembers))
+      })
+      .then(() => {
+        return addUsersEmail(groupId, emailArr)
+      }) 
+      .then(result => {
+        return Promise.resolve(processMemberResult(result, allMembers))
+      })  
+      .then(() => {
+        dispatch({type: REMOVE_MEMBERS_SUCCESS, payload: {groupId, members: allMembers}})  
+      })
+      .catch(err => {
+        dispatch({type: REMOVE_MEMBERS_FAILURE, payload: {err} })
       })
   })
 }

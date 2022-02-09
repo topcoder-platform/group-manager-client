@@ -7,6 +7,8 @@ import Tab from 'appirio-tech-react-components/components/Tabs/Tab'
 import NewGroupForm from './NewGroupForm'
 import MemberCollectionContainer from './../../members/MemberCollectionContainer'
 import AddMemberFormContainer from './../../members/AddMemberFormContainer'
+import RemoveMemberFormContainer from './../../members/RemoveMemberFormContainer'
+
 
 class GroupTabs extends React.Component {
 
@@ -31,6 +33,10 @@ class GroupTabs extends React.Component {
               saveRecord={saveRecord} 
               isSaving={isSaving}
             /> 
+          </Tab>
+
+          <Tab title="Remove Members"eventKey="4" key="4"> 
+            <RemoveMemberFormContainer currentGroup={group} />
           </Tab>
         </Tabs>
       </div>

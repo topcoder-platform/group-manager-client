@@ -196,7 +196,7 @@ export const TOOLTIP_DEFAULT_DELAY = 300 // in ms
 export const PROJECTS_LIST_PER_PAGE = 4
 export const GROUP_LIST_PER_PAGE = 50
 
-export const MEMEBER_LIST_PER_PAGE = 100
+export const MEMEBER_LIST_PER_PAGE = 10
 
 
 // 60px of primary toolbar height + 50px of secondary toolbar height + 10px to make some margin
@@ -210,3 +210,8 @@ export const SCREEN_BREAKPOINT_RG = 992
 export const SCREEN_BREAKPOINT_MD = 768
 export const SCREEN_BREAKPOINT_SM = 640
 export const SCREEN_BREAKPOINT_XS = 320
+
+export const REMOVE_MEMBERS_PENDING = 'REMOVE_MEMBERS_PENDING'
+export const REMOVE_MEMBERS_SUCCESS = 'REMOVE_MEMBERS_SUCCESS'
+export const REMOVE_MEMBERS_FAILURE = 'REMOVE_MEMBERS_FAILURE'
+export const REMOVE_MEMBERS_INITIALIZE = 'REMOVE_MEMBERS_INITIALIZE'

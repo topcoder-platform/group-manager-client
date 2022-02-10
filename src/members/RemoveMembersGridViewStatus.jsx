@@ -69,7 +69,7 @@ const RemoveMembersGridViewStatus = props => {
         const responsePresent = _.get(item, 'response.resolved', false)
         if (!responsePresent) {
           return (
-            <div className="txt-normal">
+            <div className="spacing">
               <IconPending height={16} width={16} />
             </div>
           )  
@@ -77,7 +77,7 @@ const RemoveMembersGridViewStatus = props => {
 
         const isValid = _.get(item, 'response.isValid', false)
         return (
-          <div className="txt-normal">
+          <div className="spacing">
             {(isValid ? <IconSuccess height={32} width={32} /> : <IconFailure height={32} width={32} />)}
           </div>
         )
@@ -98,11 +98,11 @@ const RemoveMembersGridViewStatus = props => {
 
         let message = _.get(item, 'response.message', '')
         if (_.get(item, 'response.isValid', false)) {
-          message = 'User added'
+          message = 'User removed'
         }
 
         return (
-          <div className="txt-normal">
+          <div className="spacing">
             {message}
           </div>
         )

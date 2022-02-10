@@ -116,7 +116,7 @@ workflows:
           context : org-global
           filters:
             branches:
-              only: ['develop', 'new-auth']    
+              only: ['develop', 'jira-plat-616']    
       
       - build-prod:
           context : org-global

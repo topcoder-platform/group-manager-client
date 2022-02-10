@@ -27,7 +27,7 @@ import {
 
 } from './../config/constants'
 
-import { getGroupMembers, addUsersByHandle, addUsersByEmail, removeMemberFromGroup } from './../api/members'
+import { getGroupMembers, addUsersByHandle, addUsersByEmail, removeMemberFromGroup, removeUsersByEmail, removeUsersByHandle } from './../api/members'
 import {  extractAllChildGroupsForGroup, removeMemberFromList } from './../helpers/utils'
  
 // ---------------------------ADD USERS TO GROUP ------------------------------//
@@ -240,12 +240,12 @@ export function removeUserMembersToGroup(groupId, handleArr, emailArr) {
     dispatch({type: REMOVE_MEMBERS_PENDING, payload: {groupId, members: allMembers}})
     
     // If handle has data
-    addUsersHandle(groupId, handleArr)
+    removeUsersHandle(groupId, handleArr)
       .then(result => {
         return Promise.resolve(processMemberResult(result, allMembers))
       })
       .then(() => {
-        return addUsersEmail(groupId, emailArr)
+        return removeUsersEmail(groupId, emailArr)
       }) 
       .then(result => {
         return Promise.resolve(processMemberResult(result, allMembers))
@@ -259,4 +259,17 @@ export function removeUserMembersToGroup(groupId, handleArr, emailArr) {
   })
 }
 
+function removeUsersEmail(groupId, emailArr) {
+  if (!emailArr || emailArr.length === 0) {
+    return Promise.resolve([])
+  }
+  return removeUsersByEmail(groupId, emailArr)
+}
+
+function removeUsersHandle(groupId, handleArr) {
+  if (!handleArr || handleArr.length === 0) {
+    return Promise.resolve([])
+  }
+  return removeUsersByHandle(groupId, handleArr)
+}
 

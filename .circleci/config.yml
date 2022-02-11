@@ -9,7 +9,8 @@ install_dependency: &install_dependency
           name: Installation of build and deployment dependencies.
           command: |
             sudo apt install python-dev python-pip -y
-            sudo pip install awscli --upgrade        
+            sudo apt install awscli -y
+            aws --version        
 
 install_deploysuite: &install_deploysuite
           name: Installation of install_deploysuite.

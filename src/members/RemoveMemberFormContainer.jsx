@@ -1,5 +1,5 @@
 /**
- * Add Member form Container acts as the top Level container for Add Member form
+ * Remove Member form Container acts as the top Level container for remove Member form
  */
  import React from 'react'
  import _ from 'lodash'

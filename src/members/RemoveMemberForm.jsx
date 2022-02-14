@@ -3,23 +3,12 @@ import PropTypes from 'prop-types'
 import FormsyForm from 'appirio-tech-react-components/components/Formsy'
 import Textarea from 'appirio-tech-react-components/components/Formsy/Textarea'
 
-const TCFormFields = FormsyForm.Fields
 const Formsy = FormsyForm.Formsy
 
 import LoadingIndicator from '../components/LoadingIndicator/LoadingIndicator'
 
 import './RemoveMemberForm.scss'
 
-const opts = [
-  {
-    value: 'user',
-    label: 'User'
-  },
-  {
-    value: 'childGroup',
-    label: 'Child Group'
-  },
-]
 
 class RemoveMemberForm extends Component {
   constructor(props) {
@@ -84,10 +73,10 @@ class RemoveMemberForm extends Component {
     const { currentGroup } = this.props
 
     return (
-      <div styleName="main-add-member">
+      <div styleName="main-remove-member">
         <div styleName="content">
           <Formsy.Form
-            className="add-member-form"
+            className="remove-member-form"
             onInvalid={this.onInvalid}
             onValid={this.onValid}
             onValidSubmit={this.onSubmit}
@@ -122,7 +111,7 @@ class RemoveMemberForm extends Component {
             <div className="controls">
               <button
                 type="submit"
-                className="tc-btn tc-btn-primary"
+                className="tc-btn tc-btn-warning"
                 disabled={this.props.isSaving || !this.state.valid || !this.state.dirty}
               >
               Remove Members

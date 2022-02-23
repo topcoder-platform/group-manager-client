@@ -10,7 +10,7 @@ install_dependency: &install_dependency
           command: |
             sudo apt install python-dev python-pip -y
             sudo apt install awscli -y
-            aws --version
+            aws --version        
 
 install_deploysuite: &install_deploysuite
           name: Installation of install_deploysuite.
@@ -117,7 +117,7 @@ workflows:
           context : org-global
           filters:
             branches:
-              only: ['develop', 'new-auth']    
+              only: ['develop', 'jira-plat-616']    
       
       - build-prod:
           context : org-global

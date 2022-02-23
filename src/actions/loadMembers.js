@@ -19,10 +19,15 @@ import {
 
   REMOVE_GROUP_MEMBER_PENDING,
   REMOVE_GROUP_MEMBER_SUCCESS,
-  REMOVE_GROUP_MEMBER_FAILURE
+  REMOVE_GROUP_MEMBER_FAILURE,
+
+  REMOVE_MEMBERS_PENDING,
+  REMOVE_MEMBERS_SUCCESS,
+  REMOVE_MEMBERS_FAILURE
+
 } from './../config/constants'
 
-import { getGroupMembers, addUsersByHandle, addUsersByEmail, removeMemberFromGroup } from './../api/members'
+import { getGroupMembers, addUsersByHandle, addUsersByEmail, removeMemberFromGroup, removeUsersByEmail, removeUsersByHandle } from './../api/members'
 import {  extractAllChildGroupsForGroup, removeMemberFromList } from './../helpers/utils'
  
 // ---------------------------ADD USERS TO GROUP ------------------------------//
@@ -216,4 +221,55 @@ export function removeMember(member) {
   })
 }
 
+// remove members -----
+
+export function removeUserMembersToGroup(groupId, handleArr, emailArr) {
+  const allMembers = [] 
+
+  handleArr = _.uniq(handleArr)
+  emailArr = _.uniq(emailArr)
+
+  _.forEach(handleArr, (handle) => {
+    allMembers.push( {membershipType: 'User', identifier: 'Handle', data: handle})
+  })
+  _.forEach(emailArr, (email) => {
+    allMembers.push( {membershipType: 'User', identifier: 'Email', data: email})
+  })
+
+  return ((dispatch) => {
+    dispatch({type: REMOVE_MEMBERS_PENDING, payload: {groupId, members: allMembers}})
+    
+    // If handle has data
+    removeUsersHandle(groupId, handleArr)
+      .then(result => {
+        return Promise.resolve(processMemberResult(result, allMembers))
+      })
+      .then(() => {
+        return removeUsersEmail(groupId, emailArr)
+      }) 
+      .then(result => {
+        return Promise.resolve(processMemberResult(result, allMembers))
+      })  
+      .then(() => {
+        dispatch({type: REMOVE_MEMBERS_SUCCESS, payload: {groupId, members: allMembers}})  
+      })
+      .catch(err => {
+        dispatch({type: REMOVE_MEMBERS_FAILURE, payload: {err} })
+      })
+  })
+}
+
+function removeUsersEmail(groupId, emailArr) {
+  if (!emailArr || emailArr.length === 0) {
+    return Promise.resolve([])
+  }
+  return removeUsersByEmail(groupId, emailArr)
+}
+
+function removeUsersHandle(groupId, handleArr) {
+  if (!handleArr || handleArr.length === 0) {
+    return Promise.resolve([])
+  }
+  return removeUsersByHandle(groupId, handleArr)
+}
 

@@ -8,7 +8,7 @@ import UserSummary from '../UserSummary/UserSummary'
 import MenuList from '../MenuList/MenuList'
 import NotificationsIcon from '../../assets/icons/ui-bell.svg'
 import AllProjectsIcon from '../../assets/icons/v.2.5/icon-all-projects.svg'
-import MyProfileIcon from '../../assets/icons/v.2.5/icon-my-profile.svg'
+import FileIcon from '../../assets/icons/file.svg'
 import NotificationSettingsIcon from '../../assets/icons/v.2.5/icon-notification-setting.svg'
 import AccountSecurityIcon from '../../assets/icons/v.2.5/icon-account-security.svg'
 
@@ -31,6 +31,12 @@ const navLinks = [{
   label: 'CONNECT',
   to: '/connect',
   Icon: AccountSecurityIcon,
+  iconClassName: 'fill',
+},
+{
+  label: 'BULK UPLOAD',
+  to: '/bulkUpload',
+  Icon: FileIcon,
   iconClassName: 'fill',
 },
 {

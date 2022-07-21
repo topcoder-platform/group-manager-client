@@ -12,6 +12,8 @@ import {
   EDIT_BATCH_FAILURE,
   LOAD_BATCH_FAILURE,
 
+  EDIT_BULKUPLOAD_SUCCESS,
+
   ADD_MEMBERS_SUCCESS,
   REMOVE_GROUP_MEMBER_SUCCESS,
   REMOVE_GROUP_MEMBER_FAILURE,
@@ -67,6 +69,11 @@ export default function(state = {}, action) {
   case EDIT_BATCH_SUCCESS: {
     Alert.success('New Batch for User deactivation submitted successfully') 
     return state 
+  }
+
+  case EDIT_BULKUPLOAD_SUCCESS: {
+    Alert.success('New Bulk Upload for Group operation submitted successfully') 
+    return state
   }
 
   

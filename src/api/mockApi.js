@@ -1,6 +1,8 @@
 import { getAllGroupsJSON, newGroupJSON, removeMember,
   updateGroupJSON, getGeneratedMembers, getAddUsersByHandle, newBatchJSON,
+  newBulkUploadJSON,
   getAllBatches,
+  getAllBulkUploads,
   getAllConnect,
   getConnect,
   getConnectJSON
@@ -70,10 +72,27 @@ MockApi.prototype.getAllBatches = function() {
   })
 }
 
+MockApi.prototype.getAllBulkUploads = function() {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(getAllBulkUploads())
+    }, DEFAULT_DELAY)
+  })
+}
+
+
 MockApi.prototype.createBatch = function(input) {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve(newBatchJSON(input))
+    }, DEFAULT_DELAY)
+  })
+}
+
+MockApi.prototype.createBulkUpload = function(input) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(newBulkUploadJSON(input))
     }, DEFAULT_DELAY)
   })
 }

@@ -10,6 +10,7 @@ import addMembers from './addMembers'
 import removeMembers from './removeMembers'
 import batch from './batch'
 import connect from './connect'
+import bulkUpload from './bulkUpload'
 
 
 export default combineReducers({
@@ -23,5 +24,6 @@ export default combineReducers({
   childGroups,
   batch,
   connect,
-  removeMembers
+  removeMembers,
+  bulkUpload
 })

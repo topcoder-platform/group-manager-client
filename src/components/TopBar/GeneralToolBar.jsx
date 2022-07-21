@@ -30,3 +30,10 @@ export const NewConnectToolBar = () => (
   />
 )
 
+export const NewBulkUploadToolBar = () => (
+  <SectionToolBar 
+    title={'New Bulk Upload - Provide a file'}
+    returnLink = {'/bulkUpload'}
+  />
+)
+

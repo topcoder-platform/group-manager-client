@@ -338,6 +338,46 @@ export function getAllConnect() {
     }]
 }
 
+export function getAllBulkUploads() {
+  return [
+    {
+      id:5,
+      name: '5th July Evening shift',
+      file_name: 'FileUpload.csv',
+      total: 10,
+      processed: 9,
+      errors: 1,
+      status: 'Completed',
+      created_at: '2020-06-01T02:34:41.000Z',
+      updated_at: '2020-06-01T02:34:41.000Z'
+    },
+    {
+      id:6,
+      name: '7th July Evening shift',
+      file_name: 'FileUpload2.csv',
+      total: 100,
+      processed: 90,
+      errors: 10,
+      status: 'Submitted',
+      created_at: '2021-06-01T02:20:41.000Z',
+      updated_at: '2021-06-01T02:34:41.000Z'
+    },
+    {
+      id:10,
+      name: '10th July Evening shift',
+      file_name: 'FileUpload3.csv',
+      total: 3000,
+      processed: 900,
+      errors: 10,
+      status: 'In Progress',
+      created_at: '2021-06-01T02:20:41.000Z',
+      updated_at: '2021-06-01T02:34:41.000Z'
+    }
+  ]
+}
+
+
+
 export function getAllBatches() {
   return [
     {
@@ -392,6 +432,21 @@ export function newBatchJSON(input) {
     updated_at: '2020-06-01T01:52:50.000Z'
   }
 }
+
+
+export function newBulkUploadJSON(input) {
+  return {
+    id: 33,
+    status: 'Submitted',
+    total: null,
+    processed: null,
+    errors: null,
+    file_name: 'FileUload.csv',
+    created_at: '2020-06-01T01:52:50.000Z',
+    updated_at: '2020-06-01T01:52:50.000Z'
+  }
+}
+
 
 export function getASampleMember() {
   return {id:'5cfe3a3e-32da-4b48-a5c3-39f7aa5cd9d3', 

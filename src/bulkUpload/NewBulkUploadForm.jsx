@@ -25,6 +25,7 @@ class NewBulkUploadForm extends Component {
     this.onValid = this.onValid.bind(this)
     this.onInvalid = this.onInvalid.bind(this)
     this.onChange = this.onChange.bind(this)
+    this.onFileChange = this.onFileChange.bind(this)
   }
 
   //Send data to the base handler for saving
@@ -40,7 +41,14 @@ class NewBulkUploadForm extends Component {
     this.setState({valid: false})
   }
 
+  onFileChange(file) {
+    this.props.newBulkUpload.file = file
+    this.onChange(file, true)
+  }
+
   onChange(currentValues, isChanged) {
+    console.log('On change....')
+
     if (this.state.dirty !== isChanged) {
       this.setState({ dirty: isChanged })
     }
@@ -75,10 +83,20 @@ class NewBulkUploadForm extends Component {
             onChange={this.onChange}
           >
 
-            
             <div className="section-heading">File Detail</div>
 
-            <BulkUploadFilePicker />
+            <div className="field">
+              <div className="label">
+                <span styleName="fieldLabelText">File </span>&nbsp;
+              </div>
+              <BulkUploadFilePicker onFileChange={this.onFileChange} />
+              <div className="italicText">
+                Provide the CSV file with the details
+                <br/>
+              </div>
+            </div>
+
+               
         
             {/* Friendly Name for File Upload Component */}
             <div className="field">
@@ -95,11 +113,10 @@ class NewBulkUploadForm extends Component {
                 validationErrors={{
                   maxLength: 'Maximum length allowed is 255',
                 }}
-                required
               />
               <br/>    
               <div className="italicText">
-                Enter a user friendly name to refer to this upload, if no name is specified the current timestamp is used as a name
+                Enter a user friendly name to refer to this upload, if no name is specified the uploaded file name is used
                 <br/>
               </div>
             </div>

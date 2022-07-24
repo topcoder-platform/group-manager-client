@@ -30,8 +30,15 @@ export function createBulkUpload(bulkUpload) {
   if (USE_MOCK) {
     return MockApi.createBatch(bulkUpload)
   }
-  return axios.post(`${API_END_POINT}/bulkImport`, bulkUpload)
-    .then(resp => {
-      return _.get(resp, 'data') 
-    })
+  const bulkUploadFormData = new FormData()
+  bulkUploadFormData.append('memberFileUpload', bulkUpload.file)
+  bulkUploadFormData.append('name', bulkUpload.name)
+
+  return axios.post(`${API_END_POINT}/bulkImport`, bulkUpload, {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  }).then(resp => {
+    return _.get(resp, 'data') 
+  })
 }

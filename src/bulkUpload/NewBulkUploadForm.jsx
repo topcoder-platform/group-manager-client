@@ -31,6 +31,7 @@ class NewBulkUploadForm extends Component {
   //Send data to the base handler for saving
   onSubmit(bulkUpload) {
     this.props.saveRecord(bulkUpload)
+    return false
   }
 
   onValid() {
@@ -43,15 +44,16 @@ class NewBulkUploadForm extends Component {
 
   onFileChange(file) {
     this.props.newBulkUpload.file = file
-    this.onChange(file, true)
   }
 
   onChange(currentValues, isChanged) {
-    console.log('On change....')
-
     if (this.state.dirty !== isChanged) {
       this.setState({ dirty: isChanged })
     }
+  }
+
+  isFileProvided() {
+    return(this.props.newBulkUpload.file)
   }
 
   getIsSavingIndicator() {
@@ -70,7 +72,6 @@ class NewBulkUploadForm extends Component {
   }
 
   render() {
-
     return (
       <div styleName="main">
         <h1 styleName="title">New Bulk Upload Operation</h1>
@@ -88,8 +89,12 @@ class NewBulkUploadForm extends Component {
             <div className="field">
               <div className="label">
                 <span styleName="fieldLabelText">File </span>&nbsp;
+                <sup styleName="requiredMarker">*</sup>
               </div>
-              <BulkUploadFilePicker onFileChange={this.onFileChange} />
+              <BulkUploadFilePicker value={this.props.newBulkUpload.file } 
+                validationError={'Please provide CSV file'}
+                onChange={this.onChange} name="file" 
+              />
               <div className="italicText">
                 Provide the CSV file with the details
                 <br/>

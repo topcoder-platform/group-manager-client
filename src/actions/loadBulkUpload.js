@@ -51,7 +51,6 @@ export function setPageNumber(pageNumber) {
 export function saveBulkUpload(editBulkUpload) {
   return (dispatch) => {
     dispatch({type : EDIT_BULKUPLOAD_PENDING})
-    //If Id exists its an update operation, else its an insert operation
     const batchUpsertPromise = createBulkUpload(editBulkUpload)
 
     return batchUpsertPromise

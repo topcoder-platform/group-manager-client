@@ -99,10 +99,7 @@ class BulkUploadList extends Component {
   }
 
   render() {
-    const { user, allBulkUploadBatches, isLoading, currentSortField } = this.props
-
-    console.log(currentSortField)
-    
+    const { user, allBulkUploadBatches, isLoading, currentSortField } = this.props    
     const sortedBatches = sortBatches(allBulkUploadBatches, currentSortField)
     const displayedBatchesCount = Math.min(this.props.pageNum * BATCH_LIST_PER_PAGE, allBulkUploadBatches.length)
     const displayView = this.getSelectedDisplayView(isLoading, sortedBatches, currentSortField)

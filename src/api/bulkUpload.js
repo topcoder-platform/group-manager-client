@@ -14,7 +14,6 @@ export function getAllBulkUploads(useCache) {
     return MockApi.getAllBulkUploads()
   }
   const queryParam = (useCache ? '' : '?refresh=true')
-  console.log(`${API_END_POINT}/bulkImport${queryParam}`)
 
   return axios.get(`${API_END_POINT}/bulkImport${queryParam}`)
     .then( resp => {
@@ -30,11 +29,13 @@ export function createBulkUpload(bulkUpload) {
   if (USE_MOCK) {
     return MockApi.createBatch(bulkUpload)
   }
+
   const bulkUploadFormData = new FormData()
+
   bulkUploadFormData.append('memberFileUpload', bulkUpload.file)
   bulkUploadFormData.append('name', bulkUpload.name)
 
-  return axios.post(`${API_END_POINT}/bulkImport`, bulkUpload, {
+  return axios.post(`${API_END_POINT}/bulkImport`, bulkUploadFormData, {
     headers: {
       'Content-Type': 'multipart/form-data'
     }

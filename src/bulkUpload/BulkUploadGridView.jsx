@@ -109,7 +109,7 @@ const BulkUploadGridView = props => {
       renderText: item => {
         return (
           <div className="spacing project-container">
-            {item.errors}
+            {item.error}
           </div>
         )
       }

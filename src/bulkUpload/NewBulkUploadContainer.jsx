@@ -36,6 +36,11 @@ class NewBulkUploadContainer extends React.Component {
         this.props.getBulkUploads(false)
         this.props.history.push('/bulkUpload')
       })
+      .catch(err => {
+        //Stay on the same screen
+        console.log(err)
+      })
+
   }
 
   render() {

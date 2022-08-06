@@ -55,10 +55,12 @@ export function saveBulkUpload(editBulkUpload) {
 
     return batchUpsertPromise
       .then( response => {
-        return dispatch({ type: EDIT_BULKUPLOAD_SUCCESS, payload: { bulkUpload: response }})
+        dispatch({ type: EDIT_BULKUPLOAD_SUCCESS, payload: { bulkUpload: response }})
+        return response
       })
       .catch(err => {
         dispatch( { type: EDIT_BULKUPLOAD_FAILURE, payload: {err: err.response}})
+        throw err
       })
   }
 }

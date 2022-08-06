@@ -35,10 +35,10 @@ class BulkUploadInfoContainer extends React.Component {
                  Upload a new file for mass operations on groups
                 <br/>
                 <div>
-                  1. The file should have the following 3 columns <br/>
-                  2. Group Name <br/>
-                  3. Email <br/>
-                  4. Operation (Add / Remove) - if nothing is specified add is assumed <br/>
+                  The file should have the following 3 columns <br/>
+                  1. Group Name <br/>
+                  2. Operation (Add / Remove) - if nothing is specified add is assumed <br/>
+                  3. Email in order <br/>
                 </div>
               </div>
             </div>    

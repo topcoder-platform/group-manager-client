@@ -21,6 +21,9 @@ module.exports = {
   ACCOUNTS_APP_LOGIN_URL       : 'https://accounts-auth0.topcoder-dev.com',
   ACCOUNTS_APP_CONNECTOR_URL   : 'https://accounts-auth0.topcoder-dev.com',
 
+  FILE_PICKER_API_KEY: process.env.FILE_PICKER_API_KEY_DEV,
+  FILE_PICKER_SUBMISSION_CONTAINER_NAME: 'submission-staging-dev',
+
 
   MAINTENANCE_MODE: process.env.DEV_MAINTENANCE_MODE,
 

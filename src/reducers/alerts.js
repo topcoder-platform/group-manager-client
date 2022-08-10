@@ -12,6 +12,8 @@ import {
   EDIT_BATCH_FAILURE,
   LOAD_BATCH_FAILURE,
 
+  EDIT_BULKUPLOAD_SUCCESS,
+
   ADD_MEMBERS_SUCCESS,
   REMOVE_GROUP_MEMBER_SUCCESS,
   REMOVE_GROUP_MEMBER_FAILURE,
@@ -21,7 +23,9 @@ import {
 
   EDIT_CONNECT_SUCCESS,
   EDIT_CONNECT_FAILURE,
-  LOAD_CONNECT_ID_FAILURE
+  LOAD_CONNECT_ID_FAILURE,
+  EDIT_BULKUPLOAD_FAILURE,
+  LOAD_BULKUPLOAD_FAILURE
 
 } from '../config/constants'
 /* eslint-enable no-unused-vars */
@@ -69,6 +73,11 @@ export default function(state = {}, action) {
     return state 
   }
 
+  case EDIT_BULKUPLOAD_SUCCESS: {
+    Alert.success('New Bulk Upload for Group operation submitted successfully') 
+    return state
+  }
+
   
   case ADD_MEMBERS_SUCCESS: {
     Alert.success(extractSucessfulAddMembers(action.payload))
@@ -103,6 +112,8 @@ export default function(state = {}, action) {
   case ADD_MEMBERS_FAILURE:  
   case LOAD_CURRENT_GROUP_FAILURE:
   case LOAD_CURRENT_GROUP_MEMBERS_FAILURE:
+  case EDIT_BULKUPLOAD_FAILURE:
+  case LOAD_BULKUPLOAD_FAILURE:
     if (action.payload && action.payload.err) {
       const message = extractErrorMessage(action.payload.err)
       

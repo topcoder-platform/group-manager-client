@@ -14,8 +14,8 @@ install_dependency: &install_dependency
             sudo sed -i 's/httpredir.debian/archive.debian/' /etc/apt/sources.list
             sudo sed -i 's/deb.debian/archive.debian/' /etc/apt/sources.list            
             sudo apt update
-            sudo apt install -y --force-yes jq python3-pip
-            sudo pip3 install awscli --upgrade
+            sudo apt install -y --force-yes jq python3-pip awscli
+            #sudo pip3 install awscli --upgrade
             aws --version        
 
 install_deploysuite: &install_deploysuite

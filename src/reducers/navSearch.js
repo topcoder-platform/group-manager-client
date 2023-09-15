@@ -3,6 +3,8 @@ import {
   SWITCH_VIEW,
 } from './../config/constants'
 
+import update from 'react-addons-update'
+
 export const initialState = {
   isLoading: false,
   selectedView: PROJECTS_LIST_VIEW.GRID

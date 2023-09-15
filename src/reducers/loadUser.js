@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import {
   LOAD_USER_PENDING,
   LOAD_USER_SUCCESS,

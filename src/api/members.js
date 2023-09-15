@@ -85,7 +85,7 @@ export function removeMemberFromGroup(groupId, memberId) {
  * @param {groupId} the group Id where these members should be removed 
  * @param {handleArr} the handle which needs to be removed 
  */
-export function removeUsersByHandle(groupId, handleArr) {
+ export function removeUsersByHandle(groupId, handleArr) {
   return axios.post(`${API_END_POINT}/${groupId}/batchDeleteMembers/handle`, handleArr)
     .then( resp => {
       return _.get(resp, 'data')

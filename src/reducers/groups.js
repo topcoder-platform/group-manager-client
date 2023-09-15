@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import {
   LOAD_GROUP_SUCCESS,
   LOAD_GROUP_FAILURE,

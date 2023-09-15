@@ -1,5 +1,6 @@
 require('./GroupListNavHeader.scss')
 
+import _ from 'lodash'
 import React, { Component } from 'react'
 import PT from 'prop-types'
 import CardView from '../assets/icons/ui-16px-2_grid-45-gray.svg'

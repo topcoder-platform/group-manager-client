@@ -61,7 +61,7 @@ class NewGroupForm extends Component {
       return null
     }
 
-    const currentStatus =  _.lowerCase(_.get(this.props.editGroup, 'status', 'active'))
+    const currentStatus =  _.lowerCase(_.get(this.props.editGroup, 'status', 'active'));
     const isInActiveGroup = (currentStatus === 'inactive')
     if (isInActiveGroup) {
       return (

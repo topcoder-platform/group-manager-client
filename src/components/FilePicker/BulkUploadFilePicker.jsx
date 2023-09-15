@@ -27,7 +27,6 @@ class BulkUploadFilePicker extends Component {
     this.domInputRef.focus()
   }
 
-  // eslint-disable-next-line no-unused-vars
   changeValue(e) {
 
     const inputFile = document.getElementById('groupFile')
@@ -46,7 +45,7 @@ class BulkUploadFilePicker extends Component {
     const hasError = !this.props.isPristine() && !this.props.getValue()
     const classes = classNames('tc-textarea', {error: hasError}, {empty: !this.props.getValue()})
 
-    // const disabled = this.props.isFormDisabled() || this.props.disabled
+    const disabled = this.props.isFormDisabled() || this.props.disabled
     const errorMessage = this.props.getErrorMessage() || this.props.validationError
 
     return (

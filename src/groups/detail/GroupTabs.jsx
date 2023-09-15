@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import './GroupTabs.scss'
 
 import Tabs from 'appirio-tech-react-components/components/Tabs/Tabs'

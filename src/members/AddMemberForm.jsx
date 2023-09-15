@@ -3,12 +3,13 @@ import PropTypes from 'prop-types'
 import FormsyForm from 'appirio-tech-react-components/components/Formsy'
 import Textarea from 'appirio-tech-react-components/components/Formsy/Textarea'
 
+const TCFormFields = FormsyForm.Fields
 const Formsy = FormsyForm.Formsy
 
 import LoadingIndicator from './../components/LoadingIndicator/LoadingIndicator'
 
 import './AddMemberForm.scss'
-/*
+
 const opts = [
   {
     value: 'user',
@@ -19,7 +20,7 @@ const opts = [
     label: 'Child Group'
   },
 ]
-*/
+
 class AddMemberForm extends Component {
   constructor(props) {
     super(props)

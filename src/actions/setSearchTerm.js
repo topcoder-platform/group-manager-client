@@ -1,3 +1,5 @@
+import _ from 'lodash'
+
 import { SET_SEARCH_TERM,
   GROUP_LIST_SORT, 
   MEMBER_LIST_SORT, 

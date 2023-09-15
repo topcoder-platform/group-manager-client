@@ -1,6 +1,7 @@
 import React from 'react'
 import PT from 'prop-types'
 import TextTruncate from 'react-text-truncate'
+import { Link } from 'react-router-dom'
 import _ from 'lodash'
 
 import './GroupCardBody.scss'

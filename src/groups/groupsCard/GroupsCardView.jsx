@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import _ from 'lodash'
 import InfiniteScroll from 'react-infinite-scroller'
 import GroupCard from './GroupCard'
 import NewGroupCard from './NewGroupCard'
@@ -10,7 +11,7 @@ require('./../GroupsGridView.scss')
 
 const GroupsCardView = props => {
   
-  const { groups, currentUser, onPageChange, pageNum, totalCount, infiniteAutoload,
+  const { groups, currentUser, onPageChange, pageNum, totalCount, infiniteAutoload, newProjectLink,
     setInfiniteAutoload, isLoading } = props
 
   const renderGroup = (group) => {

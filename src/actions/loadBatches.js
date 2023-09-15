@@ -1,3 +1,4 @@
+import _ from 'lodash'
 import {
   LOAD_BATCH_PENDING,
   LOAD_BATCH_SUCCESS,

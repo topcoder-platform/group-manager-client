@@ -1,7 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import cn from 'classnames'
 import Modal from './../Modal/Modal'
 
-// eslint-disable-next-line no-unused-vars
 const ConfirmModal = ({children, className, onClose}) => {
   return (
     <Modal>

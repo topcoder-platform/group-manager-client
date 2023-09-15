@@ -7,9 +7,11 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import FormsyForm from 'appirio-tech-react-components/components/Formsy'
 import Textarea from 'appirio-tech-react-components/components/Formsy/Textarea'
+import Checkbox from 'appirio-tech-react-components/components/Formsy/Checkbox'
 
 import LoadingIndicator from '../components/LoadingIndicator/LoadingIndicator'
 
+const TCFormFields = FormsyForm.Fields
 const Formsy = FormsyForm.Formsy
 
 import './NewBatchForm.scss'

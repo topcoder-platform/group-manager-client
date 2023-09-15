@@ -11,10 +11,7 @@ import {
 import { getFreshToken, configureConnector, decodeToken } from '@topcoder-platform/tc-auth-lib'
 import { getUserProfile } from '../api/users'
 
-const domainConnectorUrl = `https://accounts.${DOMAIN}/connector.html`
-
 console.log('Domain =>' + DOMAIN)
-console.log('iframe url =>' + domainConnectorUrl)
 console.log('Accounts App url =>' + ACCOUNTS_APP_CONNECTOR_URL)
 
 configureConnector({

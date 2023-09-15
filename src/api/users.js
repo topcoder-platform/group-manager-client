@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import { axiosInstance as axios } from './requestInterceptor'
 import { DOMAIN } from '../config/constants'
 
@@ -8,8 +7,8 @@ import { DOMAIN } from '../config/constants'
  * @return {object}           user returned by api
  */
 export function getUserProfile(handle) {
-  return axios.get(`https://api.${DOMAIN}/v3/members/${handle}/`)
+  return axios.get(`https://api.${DOMAIN}/v5/members/${handle}/`)
     .then(resp => {
-      return _.get(resp.data, 'result.content', {})
+      return resp.data || {}
     })
 }

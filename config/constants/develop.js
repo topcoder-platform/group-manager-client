@@ -1,16 +1,6 @@
 module.exports = {
-  API_URL           : 'https://api.topcoder-dev.com/v3',
-  API_URL_V2        : 'https://api.topcoder-dev.com/v2',
-  INTERNAL_API_URL  : 'https://internal-api.topcoder-dev.com/v3',
   ASSET_PREFIX      : 'https://s3.amazonaws.com/app.topcoder-dev.com/',
-  AUTH_API_URL      : 'https://api.topcoder-dev.com/v3',
-  auth0Callback     : 'https://api.topcoder-dev.com/pub/callback.html',
   GROUPS_API_URL     : 'https://api.topcoder-dev.com/v5/groupmanager', 
-  auth0Domain       : 'topcoder-dev.auth0.com',
-  clientId          : process.env.AUTH0_CLIENT_ID_DEV,
-  AUTH0_DOMAIN      : 'topcoder-dev.auth0.com',
-  AUTH0_CLIENT_ID   : process.env.AUTH0_CLIENT_ID_DEV,
-  domain            : 'topcoder-dev.com',
   DOMAIN            : 'topcoder-dev.com',
   ENV               : 'DEV',
 

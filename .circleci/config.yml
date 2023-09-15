@@ -9,6 +9,7 @@ install_dependency: &install_dependency
           name: Installation of build and deployment dependencies.
           command: |
             sudo sed -i 's|security.debian.org|archive.debian.org/debian-security|' /etc/apt/sources.list
+            sudo sed -i 's/deb.debian/archive.debian/' /etc/apt/sources.list
             sudo apt update
             sudo apt install jq python3-pip
             sudo pip3 install awscli --upgrade

@@ -9,7 +9,6 @@ import BulkUploadFilePicker from '../components/FilePicker/BulkUploadFilePicker'
 
 import LoadingIndicator from '../components/LoadingIndicator/LoadingIndicator'
 
-const TCFormFields = FormsyForm.Fields
 const Formsy = FormsyForm.Formsy
 
 import './NewBulkUploadForm.scss'

@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import {
   LOAD_BULKUPLOAD_PENDING,
   LOAD_BULKUPLOAD_SUCCESS,

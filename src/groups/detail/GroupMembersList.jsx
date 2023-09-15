@@ -1,10 +1,5 @@
 import React from 'react'
-import _ from 'lodash'
-import { connect } from 'react-redux'
-import { withRouter, Link } from 'react-router-dom'
 import './GroupDetail.scss'
-
-import MediaQuery from 'react-responsive'
 
 class GroupMemberList extends React.Component {
   constructor(props) {

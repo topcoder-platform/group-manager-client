@@ -1,15 +1,7 @@
 import React, { Component } from 'react'
 import PT from 'prop-types'
 import _ from 'lodash'
-import { Link } from 'react-router-dom'
 import moment from 'moment'
-
-import GroupCardBody from '../groupsCard/GroupCardBody'
-import MobileExpandable from '../../components/MobileExpandable/MobileExpandable'
-import MediaQuery from 'react-responsive'
-import { SCREEN_BREAKPOINT_MD } from '../../config/constants'
-import Tooltip from 'appirio-tech-react-components/components/Tooltip/Tooltip'
-import { TOOLTIP_DEFAULT_DELAY } from '../../config/constants'
 
 import './GroupInfo.scss'
 

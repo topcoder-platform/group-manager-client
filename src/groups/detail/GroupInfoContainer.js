@@ -1,8 +1,5 @@
 import React from 'react'
 
-import { connect } from 'react-redux'
-import { withRouter, Link } from 'react-router-dom'
-
 import GroupInfo from './GroupInfo'
 import TailLeft from '../../assets/icons/arrows-16px-1_tail-left.svg'
 

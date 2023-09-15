@@ -5,9 +5,8 @@
  * NOTE data is loaded by the parent ProjectDetail component
  */
 import React from 'react'
-import _ from 'lodash'
 import { connect } from 'react-redux'
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 import './GroupDetail.scss'
 
 import MediaQuery from 'react-responsive'
@@ -41,6 +40,7 @@ class GroupDetail extends React.Component {
     this.props.loadGroupById(groupId)
   }
 
+  // eslint-disable-next-line no-unused-vars
   componentWillReceiveProps(nextProps) {
   }
 
@@ -48,12 +48,14 @@ class GroupDetail extends React.Component {
   componentDidMount() {
     // if the user is a customer and its not a direct link to a particular phase
     // then by default expand all phases which are active
+    // eslint-disable-next-line no-unused-vars
     const { isCustomerUser, expandProjectPhase, location } = this.props
 
   }
 
   updateGroup(group) {
     this.props.saveGroup(group)
+      // eslint-disable-next-line no-unused-vars
       .then(response => {
         
       })

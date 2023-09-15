@@ -30,9 +30,11 @@ class NewConnectForm extends Component {
   //Send data to the base handler for saving
   onSubmit(projectData) {
     if (projectData.planned_start_date_dt) {      
+      // eslint-disable-next-line camelcase
       projectData.planned_start_date = this.convertDateToSeconds(projectData.planned_start_date_dt)
     }
     if(projectData.planned_end_date_dt) {
+      // eslint-disable-next-line camelcase
       projectData.planned_end_date = this.convertDateToSeconds(projectData.planned_end_date_dt)
     }
 
@@ -92,10 +94,12 @@ class NewConnectForm extends Component {
   convertMillisecondsToDate(projectData) {
     if (projectData.planned_start_date) {
       const dtDecimal = parseInt(projectData.planned_start_date, 10) * 1000
+      // eslint-disable-next-line camelcase
       projectData.planned_start_date_dt = this.convertDateToString(new Date(dtDecimal))
     }
     if (projectData.planned_end_date) {
       const dtDecimal = parseInt(projectData.planned_end_date, 10) * 1000
+      // eslint-disable-next-line camelcase
       projectData.planned_end_date_dt = this.convertDateToString(new Date(dtDecimal))
     }
   }
@@ -120,7 +124,7 @@ class NewConnectForm extends Component {
     if (!this.props.newConnect.details) {
       return null
     }
-    let projectData = this.props.newConnect.details.project_data
+    let projectData = this.props.newConnect.details.projectData
     if (!projectData) {
       projectData = {}
       isError = true

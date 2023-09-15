@@ -41,7 +41,7 @@ export const initialState = {
   },
   currentConnectLoading: false
 }
-    
+/*
 function updateState(state, payload, extraInfo) {
   const prevState = {...state}
   if (payload.isNew) {
@@ -49,7 +49,7 @@ function updateState(state, payload, extraInfo) {
   } 
   return Object.assign({}, prevState, extraInfo)
 }
-    
+*/
 export default function(state = initialState, action) {
   switch (action.type) {
   case EDIT_CONNECT_PENDING:

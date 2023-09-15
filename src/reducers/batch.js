@@ -31,7 +31,7 @@ export const initialState = {
   isSaving: false //If the create Batch save in progress
 
 }
-
+/*
 function updateState(state, payload, extraInfo) {
   const prevState = {...state}
   if (payload.isNew) {
@@ -39,7 +39,7 @@ function updateState(state, payload, extraInfo) {
   } 
   return Object.assign({}, prevState, extraInfo)
 }
-
+*/
 export default function(state = initialState, action) {
   switch (action.type) {
   case EDIT_BATCH_PENDING:

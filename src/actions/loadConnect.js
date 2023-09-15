@@ -67,7 +67,7 @@ export function saveConnect(projectData) {
     //If Id exists its an update operation, else its an insert operation
 
     const newConnect = _.cloneDeep(connect)
-    newConnect.details.project_data = projectData
+    newConnect.details.projectData = projectData
     const connectUpsertPromise = createConnect(newConnect)
 
     return connectUpsertPromise

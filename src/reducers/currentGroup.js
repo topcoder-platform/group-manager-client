@@ -1,4 +1,3 @@
-import _ from 'lodash'
 import update from 'react-addons-update'
 
 import {
@@ -56,14 +55,14 @@ const initialState = {
 
   isDeleting: false
 }
-
+/*
 function setCurrentGroup(state, payload) {
   if (payload.isNew) {
     return Object.assign({}, state, {group: {name: 'Wipro - Topgear - '}})
   }
   return Object.assign({}, state, payload.group)
 }
-
+*/
 function updateState(state, payload, extraInfo) {
   const prevState = {...state}
 
@@ -165,10 +164,7 @@ export default function(state = initialState, action) {
       {
         isDeleting: false, 
         members: action.payload.members, 
-      }) 
-    
-  case LOAD_CURRENT_GROUP_MEMBERS_FAILURE:
-    return updateState(state, action.payload, {isCurrentMembersLoading: false})     
+      })
   case LOAD_CURRENT_CHILD_GROUP_MEMBERS_PENDING:
     return updateState( state, action.payload, {isChildGroupsLoading: true} )  
   case LOAD_CURRENT_CHILD_GROUP_MEMBERS_SUCCESS:

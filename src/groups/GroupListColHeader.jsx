@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import _ from 'lodash'
 import cn from 'classnames'
 import Dropdown from 'appirio-tech-react-components/components/Dropdown/Dropdown'
 import IconCarretDownActive from './../assets/icons/arrow-6px-carret-down-active.svg'
@@ -28,6 +27,7 @@ class GroupListColHeader extends React.Component {
   }
 
   onOutsideClick(ev) {
+    // eslint-disable-next-line no-unused-vars
     const currNode = ev.target
     /*
     if (currNode.className.indexOf('dropdown') > -1) {

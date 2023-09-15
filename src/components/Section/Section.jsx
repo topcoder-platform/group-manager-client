@@ -5,12 +5,11 @@
  */
 import React from 'react'
 import PropTypes from 'prop-types'
-import { TransitionGroup, Transition } from 'react-transition-group'
+import { TransitionGroup} from 'react-transition-group'
 
 import SectionTitle from '../SectionTitle/SectionTitle'
 import SectionItem from '../SectionItem/SectionItem'
 
-import LoadingIndicator from '../LoadingIndicator/LoadingIndicator'
 import cn from 'classnames'
 import './Section.scss'
 

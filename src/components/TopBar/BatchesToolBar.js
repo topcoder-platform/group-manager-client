@@ -4,8 +4,6 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import SearchBar from 'appirio-tech-react-components/components/SearchBar/SearchBar'
-import HelpIcon from 'appirio-tech-react-components/components/HelpIcon/HelpIcon'
 
 
 import NewGroupNavLink from './NewGroupNavLink'

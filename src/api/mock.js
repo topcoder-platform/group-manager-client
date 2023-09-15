@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable camelcase */
 import _ from 'lodash'
 
 export function getAllGroupsJSON() {
@@ -271,7 +273,7 @@ export function getConnect(connectId) {
   return {
     description:'Corporate Card requirements are captured by the owner.', 
     details:{
-      project_data: {
+      projectData: {
         planned_end_date:'1601490600', 
         group_name:'NA', 
         project_code:'HEA', 

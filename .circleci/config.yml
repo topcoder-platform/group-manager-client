@@ -8,14 +8,20 @@ deploy_defaults: &deploy_defaults
 install_dependency: &install_dependency
           name: Installation of build and deployment dependencies.
           command: |
-            sudo apt install python-dev python-pip -y
-            sudo apt install awscli -y
+            sudo sed -i '/jessie-updates/d' /etc/apt/sources.list
+            sudo sed -i '/jessie-backports/d' /etc/apt/sources.list
+            sudo sed -i 's|security.debian.org|archive.debian.org/debian-security|' /etc/apt/sources.list
+            sudo sed -i 's/httpredir.debian/archive.debian/' /etc/apt/sources.list
+            sudo sed -i 's/deb.debian/archive.debian/' /etc/apt/sources.list            
+            sudo apt update
+            sudo apt install -y --force-yes jq python3-pip awscli
+            #sudo pip3 install awscli --upgrade
             aws --version        
 
 install_deploysuite: &install_deploysuite
           name: Installation of install_deploysuite.
           command: |
-            git clone --branch v1.4 https://github.com/topcoder-platform/tc-deploy-scripts ../buildscript
+            git clone --branch  v1.4.14 https://github.com/topcoder-platform/tc-deploy-scripts ../buildscript
             cp ./../buildscript/master_deploy.sh .
             cp ./../buildscript/buildenv.sh .
             cp ./../buildscript/awsconfiguration.sh .
